@@ -34,6 +34,7 @@ blocks:
           - gem install bundler -v 2.0.1 --no-ri --no-rdoc
           - bundle install -j 4 --path vendor/bundle
           - bundle exec rake db:setup
+          - bundle exec rake db:test:prepare
 
       jobs:
       - name: RSpec - model tests
@@ -55,6 +56,7 @@ blocks:
           - gem install bundler -v 2.0.1 --no-ri --no-rdoc
           - bundle install --path vendor/bundle
           - bundle exec rake db:setup
+          - bundle exec rake db:test:prepare
 
       jobs:
       - name: RSpec - feature specs
