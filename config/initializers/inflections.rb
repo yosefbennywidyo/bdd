@@ -14,3 +14,21 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+	inflect.irregular 'halaman', 'halaman'
+	inflect.irregular 'kategori', 'kategori'
+	inflect.irregular 'e_data_', 'e_data'
+	inflect.irregular 'katolik', 'katolik'
+	inflect.irregular 'peran', 'peran'
+	inflect.irregular 'tentang', 'tentang'
+	inflect.irregular 'foto', 'foto'
+	inflect.irregular 'video', 'video'
+	inflect.irregular 'berita', 'berita'
+	inflect.irregular 'terkini', 'terkini'
+	inflect.irregular 'pengumuman', 'pengumuman'
+	inflect.irregular 'laporan', 'laporan'
+	inflect.irregular 'sumteng', 'sumteng'
+	inflect.irregular 'lampiran', 'lampiran'
+	inflect.irregular 'pemakai', 'pemakai'
+	inflect.irregular 'fungsi', 'fungsi'
+end
