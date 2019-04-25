@@ -29,10 +29,10 @@ blocks:
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
           # Start Postgres database service.
           # See https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
-          - sem-service start postgres
           - sem-version ruby 2.5.3
           - gem install bundler -v 2.0.1 --no-ri --no-rdoc
           - bundle install -j 4 --path vendor/bundle
+          - sem-service start postgres
           - bundle exec rake db:setup
           - bundle exec rake db:test:prepare
 
