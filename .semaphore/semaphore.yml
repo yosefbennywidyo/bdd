@@ -7,6 +7,9 @@ agent:
 blocks:
   - name: Install dependencies
     task:
+      env_vars:
+        - name: RAILS_ENV
+          value: test
       jobs:
         - name: cache bundle
           commands:
