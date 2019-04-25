@@ -13,7 +13,8 @@ Skenario: Mengunjungi aplikasi
 	Maka saya berada di Beranda
 
 Skenario: Mendaftar
-	Dengan saya mengunjungi Beranda aplikasi
+	Dengan saya mengunjungi aplikasi berbasis web
+	Maka saya berada di Beranda
 	Ketika saya mengisi form pendaftaran
 	Dan saya mengonfirmasi email
 	Maka saya dapat melihat akun telah dikonfirmasi
@@ -26,7 +27,6 @@ Skenario: Pengguna masuk ke aplikasi
 
 Skenario: Pengguna keluar dari aplikasi
 	Dengan saya sebagai pengguna terdaftar
-	Dan saya berhasil masuk
-	Dan saya mengunjungi Beranda
-	Ketika saya klik tombol keluar
+	Dan saya mengunjungi Beranda aplikasi
+	Ketika saya tekan tombol keluar
 	Maka saya dialihkan ke halaman masuk
