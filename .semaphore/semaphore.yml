@@ -29,6 +29,17 @@ blocks:
           # Store the latest version of dependencies in cache,
           # to be used in next blocks and future workflows:
           - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
+  
+  - name: Install dependencies
+    task:
+      jobs:
+        - name: cache bundle
+          commands:
+            - checkout
+            - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH,gems-master
+            - bundle install --deployment --path vendor/bundle
+            - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
+
   - name: "Unit Test"
     task:
       # This block runs two jobs in parallel and they both share common
