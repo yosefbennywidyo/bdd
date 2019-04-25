@@ -31,7 +31,6 @@ blocks:
           # See https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
           - sem-service start postgres
           - sem-version ruby 2.5.3
-          - gem install bundler -v 2.0.1 --no-ri --no-rdoc
           - bundle install --path vendor/bundle
           - bundle exec rake db:setup
 
