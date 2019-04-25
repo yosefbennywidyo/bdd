@@ -51,3 +51,8 @@ end
 Maka("saya dialihkan ke halaman masuk") do
 	expect(page).to have_content("Masuk")
 end
+
+Dan("saya dapat mengedit akun") do
+	click_link "Edit akun"
+	click_button "Batal"
+end

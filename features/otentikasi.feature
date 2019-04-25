@@ -25,6 +25,13 @@ Skenario: Pengguna masuk ke aplikasi
 	Ketika saya mengisi formulir masuk
 	Maka saya berhasil masuk aplikasi
 
+Skenario: Pengguna mengedit akun
+	Dengan saya sebagai pengguna terdaftar
+	Dan saya mengunjungi Beranda aplikasi
+	Ketika saya mengisi formulir masuk
+	Maka saya berhasil masuk aplikasi
+	Dan saya dapat mengedit akun
+
 Skenario: Pengguna keluar dari aplikasi
 	Dengan saya sebagai pengguna terdaftar
 	Dan saya mengunjungi Beranda aplikasi
