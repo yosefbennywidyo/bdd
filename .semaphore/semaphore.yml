@@ -24,7 +24,7 @@ blocks:
           - cd ~/.rbenv/plugins/ruby-build && git pull && cd $SEMAPHORE_PROJECT_DIR
           - rbenv install 2.5.3
           - rbenv local 2.5.3
-          - gem install bundler -v 2.0.1 --no-ri --no-rdoc --jobs 4 --path vendor/bundle --deployment
+          - gem install bundler -v 2.0.1 --no-ri --no-rdoc --path vendor/bundle --deployment
           # Store the latest version of dependencies in cache,
           # to be used in next blocks and future workflows:
           - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
