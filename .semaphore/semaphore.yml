@@ -1,5 +1,5 @@
 version: v1.0
-name: First pipeline example
+name: BDD Setup
 agent:
   machine:
     type: e1-standard-2
@@ -13,44 +13,56 @@ blocks:
       jobs:
       - name: Docker build
         commands:
+          # Optionally you may use --use-cache flag to avoid roundtrip to
+          # remote repository.
+          # See https://docs.semaphoreci.com/article/54-toolbox-reference#libcheckout
           - checkout
-          - ls -1
-          - echo $APP_ENV
-          - echo "Docker build..."
-          - echo "done"
-  - name: "Smoke tests"
+          # Restore dependencies from cache.
+          # Read about caching: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
+          - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+          # Set Ruby version:
+          - sem-version ruby 2.6.0
+          - bundle install --deployment -j 4 --path vendor/bundle
+          # Store the latest version of dependencies in cache,
+          # to be used in next blocks and future workflows:
+          - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
+  - name: "Unit Test"
     task:
+      # This block runs two jobs in parallel and they both share common
+      # setup steps. We can group them in a prologue.
+      # See https://docs.semaphoreci.com/article/50-pipeline-yaml#prologue
+      prologue:
+        commands:
+          - checkout
+          - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+          # Start Postgres database service.
+          # See https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
+          - sem-service start postgres
+          - sem-version ruby 2.6.0
+          - bundle install --deployment --path vendor/bundle
+          - bundle exec rake db:setup
+
       jobs:
-      - name: Smoke
+      - name: RSpec - model tests
         commands:
-          - checkout
-          - echo "make smoke"
-  - name: "Unit tests"
-    task:
-      jobs:
-      - name: RSpec
+          - bundle exec rspec spec/models
+
+      - name: RSpec - controller tests
         commands:
-          - checkout
-          - echo "make rspec"
-      - name: Lint code
-        commands:
-          - checkout
-          - echo "make lint"
-      - name: Check security
-        commands:
-          - checkout
-          - echo "make security"
+          - bundle exec rspec spec/controllers
+          
   - name: "Integration tests"
     task:
-      jobs:
-      - name: Cucumber
+      prologue:
         commands:
           - checkout
-          - echo "make cucumber"
-  - name: "Push Image"
-    task:
+          - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+          - sem-service start postgres
+          - sem-version ruby 2.6.0
+          - bundle install --deployment --path vendor/bundle
+          - bundle exec rake db:setup
+
       jobs:
-      - name: Push
+      - name: RSpec - feature specs
         commands:
-          - checkout
-          - echo "make docker.push"
+          - bundle exec rspec spec/features
