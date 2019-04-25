@@ -8,9 +8,9 @@ end
 
 Ketika("saya mengisi form pendaftaran") do
 	click_link "Mendaftar"
-	fill_in "user_email", :with => "tester@testdomain.test"
-	fill_in "user_password", :with => "pa$$word"
-	fill_in "user_password_confirmation", :with => "pa$$word"
+	fill_in "Email", :with => "tester@testdomain.test"
+	fill_in "Password", :with => "pa$$word"
+	fill_in "Password confirmation", :with => "pa$$word"
 	click_button "Mendaftar"
 end
 
@@ -25,7 +25,7 @@ Maka("saya dapat melihat akun telah dikonfirmasi") do
 end
 
 Dengan("saya sebagai pengguna terdaftar") do
-	@registered_user = FactoryBot.create(:user,
+	@registered_pengguna = FactoryBot.create(:pengguna,
 		:email => "tester@testdomain.test",
 		:password => "pa$$word")
 end
