@@ -6,20 +6,12 @@ Maka("saya berada di Beranda") do
 	find("h1", :text => "Selamat datang di Aplikasi Web Bimas Katolik Sumba Tengah")
 end
 
-When("I fill in the sign up form") do
-	click_link “Sign up”
-	fill_in “user_email”, :with => “tester@testdomain.test”
-	fill_in “user_password”, :with => “pa$$word”
-	fill_in “user_password_confirmation”, :with => “pa$$word”
-	click_button “Sign up”
-end
-
 Ketika("saya mengisi form pendaftaran") do
-	click_link “Mendaftar”
-	fill_in “user_email”, :with => “tester@testdomain.test”
-	fill_in “user_password”, :with => “pa$$word”
-	fill_in “user_password_confirmation”, :with => “pa$$word”
-	click_button “Mendaftar”
+	click_link "Mendaftar"
+	fill_in "user_email", :with => "tester@testdomain.test"
+	fill_in "user_password", :with => "pa$$word"
+	fill_in "user_password_confirmation", :with => "pa$$word"
+	click_button "Mendaftar"
 end
 
 Dan("saya mengonfirmasi email") do
