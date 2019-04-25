@@ -9,7 +9,7 @@ Fitur: Otentikasi
 
 
 Skenario: Mengunjungi aplikasi
-	Dengan mengunjungi aplikasi berbasis web
+	Dengan saya mengunjungi aplikasi berbasis web
 	Maka saya berada di Beranda
 
 Skenario: Mendaftar
