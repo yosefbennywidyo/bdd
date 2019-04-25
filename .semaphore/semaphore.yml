@@ -14,7 +14,8 @@ blocks:
             - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH,gems-master
             # Set Ruby version:
             - cd ~/.rbenv/plugins/ruby-build && git pull && cd $SEMAPHORE_PROJECT_DIR
-            - sem-version ruby 2.5.3
+            - rbenv install 2.5.3
+            - rbenv local 2.5.3
             - gem install bundler -v 2.0.1 --no-ri --no-rdoc
             - bundle install -j 4 --path vendor/bundle
             - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
