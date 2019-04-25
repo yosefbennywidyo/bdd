@@ -16,7 +16,7 @@ blocks:
             - cd ~/.rbenv/plugins/ruby-build && git pull && cd $SEMAPHORE_PROJECT_DIR
             - sem-version ruby 2.5.3
             - gem install bundler -v 2.0.1 --no-ri --no-rdoc
-            - bundle install --deployment -j 4 --path vendor/bundle
+            - bundle install -j 4 --path vendor/bundle
             - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
 
   - name: "Unit Test"
@@ -33,7 +33,7 @@ blocks:
           - sem-service start postgres
           - sem-version ruby 2.5.3
           - gem install bundler -v 2.0.1 --no-ri --no-rdoc
-          - bundle install --deployment --path vendor/bundle
+          - bundle install --path vendor/bundle
           - bundle exec rake db:setup
 
       jobs:
@@ -54,7 +54,7 @@ blocks:
           - sem-service start postgres
           - sem-version ruby 2.5.3
           - gem install bundler -v 2.0.1 --no-ri --no-rdoc
-          - bundle install --deployment --path vendor/bundle
+          - bundle install --path vendor/bundle
           - bundle exec rake db:setup
 
       jobs:
