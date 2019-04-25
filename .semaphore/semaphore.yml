@@ -21,8 +21,10 @@ blocks:
           # Read about caching: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
           # Set Ruby version:
-          - sem-version ruby 2.5.3
-          - bundle install -v 2.0.1 --deployment -j 4 --path vendor/bundle
+          - cd ~/.rbenv/plugins/ruby-build && git pull && cd $SEMAPHORE_PROJECT_DIR
+          - rbenv install 2.5.3
+          - rbenv local 2.5.3
+          - gem install bundler -v 2.0.1 --deployment -j 4 --path vendor/bundle --no-ri --no-rdoc
           # Store the latest version of dependencies in cache,
           # to be used in next blocks and future workflows:
           - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
