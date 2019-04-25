@@ -20,6 +20,9 @@ blocks:
 
   - name: "Unit Test"
     task:
+      env_vars:
+        - name: DB_NAME
+          value: "bdd_test"
       # This block runs two jobs in parallel and they both share common
       # setup steps. We can group them in a prologue.
       # See https://docs.semaphoreci.com/article/50-pipeline-yaml#prologue
@@ -33,6 +36,10 @@ blocks:
           - gem install bundler -v 2.0.1 --no-ri --no-rdoc
           - bundle install -j 4 --path vendor/bundle
           - sem-service start postgres
+          - sudo apt-get install -y -qq postgresql-client
+          - createdb -U postgres -h 0.0.0.0 $DB_NAME
+          - psql -h 0.0.0.0 -U postgres -c "\l" | grep $DB_NAME
+          - sem-service status postgres
           - bundle exec rake db:setup
           - bundle exec rake db:test:prepare
 
