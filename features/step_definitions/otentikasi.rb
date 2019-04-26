@@ -20,8 +20,8 @@ Dan("saya mengonfirmasi email") do
 end
 
 Maka("saya dapat melihat akun telah dikonfirmasi") do
-	message = "Anda telah sukses mengonfirmasi email"
-	expect(page).to has(message)
+	message = "Akun anda telah berhasil dikonfirmasi. Anda telah sign in."
+	expect(page).to have_content(message)
 end
 
 Dengan("saya sebagai pengguna terdaftar") do
@@ -35,17 +35,18 @@ Dan("saya mengunjungi Beranda aplikasi") do
 end
 
 Ketika("saya mengisi formulir masuk") do
-	fill_in "user_email", :with => "tester@testdomain.test"
-	fill_in "user_password", :with => "pa$$word"
+	click_link "Masuk"
+	fill_in "Email", :with => "tester@testdomain.test"
+	fill_in "Password", :with => "pa$$word"
 	click_button "Masuk"
 end
 
-Maka("saya berhasil masuk aplikasi") do
-	expect(page).to have_content("Logged in")
+Dan("saya berhasil masuk aplikasi") do
+	expect(page).to have_content("Selamat datang di Aplikasi Web Bimas Katolik Sumba Tengah")
 end
 
-Ketika("saya tekan tombol keluar") do
-	click_button "Keluar"
+Dan("saya tekan tombol keluar") do
+	click_link "Keluar"
 end
 
 Maka("saya dialihkan ke halaman masuk") do
@@ -53,6 +54,6 @@ Maka("saya dialihkan ke halaman masuk") do
 end
 
 Dan("saya dapat mengedit akun") do
-	click_link "Edit akun"
+	click_link "Edit Akun"
 	click_button "Batal"
 end

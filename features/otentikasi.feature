@@ -23,7 +23,7 @@ Skenario: Pengguna masuk ke aplikasi
 	Dengan saya sebagai pengguna terdaftar
 	Dan saya mengunjungi Beranda aplikasi
 	Ketika saya mengisi formulir masuk
-	Maka saya berhasil masuk aplikasi
+	Dan saya berhasil masuk aplikasi
 
 Skenario: Pengguna mengedit akun
 	Dengan saya sebagai pengguna terdaftar
@@ -35,5 +35,7 @@ Skenario: Pengguna mengedit akun
 Skenario: Pengguna keluar dari aplikasi
 	Dengan saya sebagai pengguna terdaftar
 	Dan saya mengunjungi Beranda aplikasi
-	Ketika saya tekan tombol keluar
+	Ketika saya mengisi formulir masuk
+	Maka saya berhasil masuk aplikasi
+	Dan saya tekan tombol keluar
 	Maka saya dialihkan ke halaman masuk

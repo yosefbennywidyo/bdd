@@ -7,7 +7,7 @@
 require 'cucumber/rails'
 # Email Spec setup
 # Make sure this require is after you require cucumber/rails/world.
-require 'email_spec' # add this line if you use spork
+# require 'email_spec' # add this line if you use spork
 require 'email_spec/cucumber'
 
 # Capybara defaults to CSS3 selectors rather than XPath.
