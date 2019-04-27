@@ -48,9 +48,8 @@ jobs:
 
       # Setup the database
       - run: bin/rails db:schema:load --trace
-      - run: ./cc-test-reporter format-coverage -t simplecov
       # notify Code Climate of a pending test report using `before-build`
-      - run: ./cc-test-reporter before-build
+      - run: ./cc-test-reporter format-coverage -t simplecov before-build
 
       # Run the tests
       - run: bundle exec cucumber --profile default
