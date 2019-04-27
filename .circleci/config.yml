@@ -48,11 +48,11 @@ jobs:
 
       # Setup the database
       - run: bin/rails db:schema:load --trace
+      - run: ./cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.json coverage/.resultset.json
+      # notify Code Climate of a pending test report using `before-build`
+      - run: ./cc-test-reporter before-build
 
       # Run the tests
       - run: bundle exec cucumber --profile default
-      # notify Code Climate of a pending test report using `before-build`
-      - run: ./cc-test-reporter before-build
-      - run: sudo vendor/bin/phpunit --coverage-clover clover.xml
       # upload test report to Code Climate using `after-build`
-      - run: ./cc-test-reporter after-build --coverage-input-type clover --exit-code $?
+      - run: ./cc-test-reporter after-build --exit-code $?
