@@ -46,10 +46,7 @@ jobs:
       - run: bundle exec rake db:setup
 
       # Run the tests
-      - run: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
-      - run: mkdir ~/rspec
-      - run:
-          command: bundle exec rspec --format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml
-          when: always
-      - store_test_results:
-          path: ~/rspec
+      test:
+        override:
+          - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
+          - bundle exec cucumber --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml
