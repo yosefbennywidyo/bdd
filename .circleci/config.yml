@@ -48,7 +48,7 @@ jobs:
 
       # Setup the database
       - run: bin/rails db:schema:load --trace
-      - run: ./cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.json coverage/.resultset.json
+      - run: ./cc-test-reporter format-coverage -t simplecov -o /codeclimate.json coverage/.resultset.json
       # notify Code Climate of a pending test report using `before-build`
       - run: ./cc-test-reporter before-build
 
