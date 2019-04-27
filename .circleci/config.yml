@@ -25,6 +25,7 @@ jobs:
       # Bundle install dependencies
       - run: gem install bundler --version=2.0.1
       - run: bundle install --path vendor/bundle
+      - run: bundle clean
 
       # Cache Dependencies
       - type: cache-save
