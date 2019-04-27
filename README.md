@@ -6,8 +6,6 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5f3e16bb72f92fdfe4e9/test_coverage)](https://codeclimate.com/github/kemenag-sumteng/bdd/test_coverage)
 
-[![Build Status](https://travis-ci.org/fybwid/rails-bdd.svg?branch=master)](https://travis-ci.org/fybwid/rails-bdd)
-
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
