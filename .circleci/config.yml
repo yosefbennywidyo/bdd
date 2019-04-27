@@ -2,6 +2,8 @@
 version: 2
 jobs:
   build:
+    environment:
+      CC_TEST_REPORTER_ID: 59e9f50f80c3b267524f3bed712e871df74dfa118624d737fd617d38693196f4
     working_directory: ~/bdd
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
@@ -34,10 +36,6 @@ jobs:
         paths:
           - vendor/bundle
 
-      # Setup Code Climate test-reporter
-      - run:  
-      - run: 
-
       # Wait for DB
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
 
@@ -48,4 +46,6 @@ jobs:
       - run: bin/rails db:schema:load --trace
 
       # Run the tests
-      - run: bundle exec cucumber --profile default
+      - run: bundle exec rake cucumber
+      - store_artifacts:
+          path: coverage

@@ -15,14 +15,12 @@ blocks:
           commands:
             - checkout
             - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH,gems-master
-            - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            - chmod +x ./cc-test-reporter
             # Set Ruby version:
             - sem-version ruby 2.5.3
             - gem install bundler -v 2.0.1 --no-ri --no-rdoc
             - bundle install -j 4 --path vendor/bundle
             - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
-            
+
   - name: "Testing"
     task:
       env_vars:
@@ -51,6 +49,4 @@ blocks:
       jobs:
       - name: Cucumber tests
         commands:
-          - ./cc-test-reporter before-build
-          - export CC_TEST_REPORTER_ID=59e9f50f80c3b267524f3bed712e871df74dfa118624d737fd617d38693196f4
-          - bundle exec rake cucumber; ./cc-test-reporter after-build --exit-code $?
+          - bundle exec rake cucumber
