@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+# Travis CI
+gem 'travis'
 # Devise
 gem 'devise'
 gem 'devise-i18n'
