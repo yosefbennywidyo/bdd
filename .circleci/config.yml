@@ -23,6 +23,7 @@ jobs:
         key: bdd-{{ checksum "Gemfile.lock" }}
 
       # Bundle install dependencies
+      - run: gem install bundler --version=2.0.1
       - run: bundle install --path vendor/bundle
 
       # Cache Dependencies
