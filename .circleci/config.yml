@@ -2,8 +2,6 @@
 version: 2
 jobs:
   build:
-    environment:
-      CC_TEST_REPORTER_ID: 59e9f50f80c3b267524f3bed712e871df74dfa118624d737fd617d38693196f4
     working_directory: ~/bdd
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
@@ -37,8 +35,8 @@ jobs:
           - vendor/bundle
 
       # Setup Code Climate test-reporter
-      - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter 
-      - run: chmod +x ./cc-test-reporter
+      - run:  
+      - run: 
 
       # Wait for DB
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -48,10 +46,6 @@ jobs:
 
       # Setup the database
       - run: bin/rails db:schema:load --trace
-      # notify Code Climate of a pending test report using `before-build`
-      - run: ./cc-test-reporter format-coverage -t simplecov before-build
 
       # Run the tests
       - run: bundle exec cucumber --profile default
-      # upload test report to Code Climate using `after-build`
-      - run: ./cc-test-reporter after-build --exit-code $?
