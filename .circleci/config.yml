@@ -45,14 +45,12 @@ jobs:
       # Setup the database
       - run: bin/rails db:schema:load --trace
 
-      - run:
-          name: Setup Code Climate test-reporter
-          # download test reporter as a static binary
-          command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-          # notify Code Climate of a pending test report using `before-build`
-            ./cc-test-reporter before-build
+      # download test reporter as a static binary
+      # notify Code Climate of a pending test report using `before-build`
+      - command: |
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+          chmod +x ./cc-test-reporter
+          ./cc-test-reporter before-build
       # Run the tests
       - run: bundle exec rake cucumber
       - store_artifacts:
