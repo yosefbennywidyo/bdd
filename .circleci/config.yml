@@ -46,20 +46,20 @@ jobs:
       - run: bin/rails db:schema:load --trace
 
       - run:
-        name: Setup Code Climate test-reporter
-        command: |
-        # download test reporter as a static binary
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-          chmod +x ./cc-test-reporter
-        # notify Code Climate of a pending test report using `before-build`
-          ./cc-test-reporter before-build
+          name: Setup Code Climate test-reporter
+          command: |
+          # download test reporter as a static binary
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+          # notify Code Climate of a pending test report using `before-build`
+            ./cc-test-reporter before-build
       # Run the tests
       - run: bundle exec rake cucumber
       - store_artifacts:
           path: coverage
 
       - run:
-        name: Upload test report to Code Climate
-        command: |
-        # upload test report to Code Climate using `after-build`
-          - run: ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
+          name: Upload test report to Code Climate
+          command: |
+          # upload test report to Code Climate using `after-build`
+            - run: ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
