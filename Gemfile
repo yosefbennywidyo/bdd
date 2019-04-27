@@ -5,6 +5,8 @@ ruby '2.5.3'
 
 # Travis CI
 gem 'travis'
+# SimpleCov
+gem 'simplecov-console'
 # Devise
 gem 'devise'
 gem 'devise-i18n'
@@ -70,6 +72,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'rails-controller-testing'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
