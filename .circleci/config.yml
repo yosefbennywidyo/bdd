@@ -36,6 +36,13 @@ jobs:
         paths:
           - vendor/bundle
 
+      - run:
+          name: Setup Code Climate test-reporter
+          command:
+          # download test reporter as a static binary
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+
       # Wait for DB
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
 
@@ -46,6 +53,9 @@ jobs:
       - run: bin/rails db:schema:load --trace
 
       # Run the tests
-      - run: bundle exec rake cucumber
-      - store_artifacts:
-          path: coverage
+      - run: bundle exec cucumber --profile default
+      # notify Code Climate of a pending test report using `before-build`
+      ./cc-test-reporter before-build
+      sudo vendor/bin/phpunit --coverage-clover clover.xml
+      # upload test report to Code Climate using `after-build`
+      ./cc-test-reporter after-build --coverage-input-type clover --exit-code $?
