@@ -47,7 +47,7 @@ jobs:
 
       - run:
         name: Setup Code Climate test-reporter
-        command:
+        command: |
         # download test reporter as a static binary
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
           chmod +x ./cc-test-reporter
@@ -58,5 +58,8 @@ jobs:
       - store_artifacts:
           path: coverage
 
-      # upload test report to Code Climate using `after-build`
-      - run: ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
+      - run:
+        name: Upload test report to Code Climate
+        command: |
+        # upload test report to Code Climate using `after-build`
+          - run: ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
