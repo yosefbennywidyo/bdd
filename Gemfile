@@ -7,7 +7,7 @@ ruby '2.5.3'
 gem 'travis'
 # SimpleCov
 gem 'simplecov', require: false, group: :test
-gem 'simplecov-console'
+#gem 'simplecov-console'
 # Devise
 gem 'devise'
 gem 'devise-i18n'
