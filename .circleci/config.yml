@@ -3,6 +3,7 @@ version: 2
 machine:
   environment:
     DBUS_SESSION_BUS_ADDRESS: /dev/null
+    CC_TEST_REPORTER_ID: 59e9f50f80c3b267524f3bed712e871df74dfa118624d737fd617d38693196f4
 jobs:
   build:
     working_directory: ~/bdd
