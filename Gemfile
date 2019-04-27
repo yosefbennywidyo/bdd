@@ -53,6 +53,7 @@ group :development, :test do
     branch: 'rails-5'
   gem 'factory_bot_rails'
   gem 'email_spec'
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -72,7 +73,6 @@ group :test do
   gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'rails-controller-testing'
-  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
