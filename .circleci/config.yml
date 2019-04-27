@@ -46,6 +46,6 @@ jobs:
       - run: bin/rails db:schema:load --trace
 
       # Run the tests
-      - run: bundle exec cucumber
+      - run: bundle exec rake cucumber
       - store_artifacts:
           path: coverage
