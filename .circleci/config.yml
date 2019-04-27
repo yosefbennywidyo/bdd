@@ -47,7 +47,7 @@ jobs:
 
       # download test reporter as a static binary
       # notify Code Climate of a pending test report using `before-build`
-      - command: |
+      - run: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
           chmod +x ./cc-test-reporter
           ./cc-test-reporter before-build
@@ -57,5 +57,5 @@ jobs:
           path: coverage
 
       # upload test report to Code Climate using `after-build`
-      - command: |
+      - run: |
           ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
