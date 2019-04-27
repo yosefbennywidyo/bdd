@@ -1,5 +1,8 @@
 ---
 version: 2
+machine:
+  environment:
+    DBUS_SESSION_BUS_ADDRESS: /dev/null
 jobs:
   build:
     working_directory: ~/bdd
