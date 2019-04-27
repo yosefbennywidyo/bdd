@@ -1,8 +1,5 @@
 ---
 version: 2
-machine:
-  environment:
-    DBUS_SESSION_BUS_ADDRESS: /dev/null
 jobs:
   build:
     working_directory: ~/bdd
@@ -43,10 +40,9 @@ jobs:
       - run: cp .sample.env .env
 
       # Setup the database
-      - run: bundle exec rake db:setup
+      - run: bin/rails db:schema:load --trace
 
       # Run the tests
-    test:
-      override:
-        - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
-        - bundle exec cucumber --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml
+      - run: bundle exec cucumber
+      - store_artifacts:
+          path: coverage
