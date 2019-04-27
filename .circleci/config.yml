@@ -2,6 +2,8 @@
 version: 2
 jobs:
   build:
+    environment:
+      CC_TEST_REPORTER_ID: 59e9f50f80c3b267524f3bed712e871df74dfa118624d737fd617d38693196f4
     working_directory: ~/bdd
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
