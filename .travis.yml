@@ -8,7 +8,7 @@ before_script:
   - bundle exec rake db:migrate
 
 scripts:
-  - bundle exec rake ci:tests
+  - bundle exec cucumber features --format progress --color
 
 services:
   - postgresql
