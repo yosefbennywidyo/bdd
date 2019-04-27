@@ -1,11 +1,9 @@
 language: ruby
 rvm:
   - 2.5.3
-before_install: gem install bundler -v 2.0.1
 bundler_args: --binstubs
 
 before_script:
-  - psql -c "CREATE USER bdd WITH PASSWORD '';" -U postgres
   - bundle exec rake db:create --all
   - bundle exec rake db:migrate
 
@@ -16,4 +14,4 @@ services:
   - postgresql
 
 notifications:
-  - false
+  email: false
