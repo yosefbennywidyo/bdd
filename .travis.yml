@@ -2,6 +2,7 @@ language: ruby
 rvm:
   - 2.5.3
 before_install: gem install bundler -v 2.0.1
+bundler_args: --binstubs
 
 before_script:
   - bundle exec rake db:create db:schema:load db:test:prepare
