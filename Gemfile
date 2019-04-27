@@ -6,6 +6,7 @@ ruby '2.5.3'
 # Travis CI
 gem 'travis'
 # SimpleCov
+gem 'simplecov', require: false, group: :test
 gem 'simplecov-console'
 # Devise
 gem 'devise'
@@ -53,7 +54,6 @@ group :development, :test do
     branch: 'rails-5'
   gem 'factory_bot_rails'
   gem 'email_spec'
-  gem 'simplecov', require: false
 end
 
 group :development do
