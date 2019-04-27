@@ -21,7 +21,7 @@ blocks:
             - bundle install -j 4 --path vendor/bundle
             - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
 
-  - name: "Unit Test"
+  - name: "Testing"
     task:
       env_vars:
         - name: DB_NAME
@@ -47,28 +47,6 @@ blocks:
           - bundle exec rake db:test:prepare
 
       jobs:
-      - name: RSpec - model tests
+      - name: Cucumber tests
         commands:
-          - bundle exec rspec spec/models
-
-      - name: RSpec - controller tests
-        commands:
-          - bundle exec rspec spec/controllers
-
-  - name: "Integration tests"
-    task:
-      prologue:
-        commands:
-          - checkout
-          - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
-          - sem-service start postgres
-          - sem-version ruby 2.5.3
-          - gem install bundler -v 2.0.1 --no-ri --no-rdoc
-          - bundle install --path vendor/bundle
-          - bundle exec rake db:setup
-          - bundle exec rake db:test:prepare
-
-      jobs:
-      - name: RSpec - feature specs
-        commands:
-          - bundle exec rspec spec/features
+          - bundle exec rake cucumber
