@@ -36,12 +36,9 @@ jobs:
         paths:
           - vendor/bundle
 
-      - run:
-          name: Setup Code Climate test-reporter
-          command:
-          # download test reporter as a static binary
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
+      # Setup Code Climate test-reporter
+      - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter 
+      - run: chmod +x ./cc-test-reporter
 
       # Wait for DB
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
