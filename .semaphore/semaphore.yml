@@ -10,8 +10,6 @@ blocks:
       env_vars:
         - name: RAILS_ENV
           value: test
-        - name: CC_TEST_REPORTER_ID
-          value: 59e9f50f80c3b267524f3bed712e871df74dfa118624d737fd617d38693196f4
       jobs:
         - name: cache bundle
           commands:
@@ -24,8 +22,7 @@ blocks:
             - gem install bundler -v 2.0.1 --no-ri --no-rdoc
             - bundle install -j 4 --path vendor/bundle
             - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
-            - ./cc-test-reporter before-build
-
+            
   - name: "Testing"
     task:
       env_vars:
@@ -54,6 +51,6 @@ blocks:
       jobs:
       - name: Cucumber tests
         commands:
-          - bundle exec rake cucumber
-          - exitcode=$(if [ "$SEMAPHORE_THREAD_RESULT" == "passed" ]; then echo 0; else echo 1; fi)
-          - ./cc-test-reporter after-build --exit-code $exitcode
+          - ./cc-test-reporter before-build
+          - export CC_TEST_REPORTER_ID=59e9f50f80c3b267524f3bed712e871df74dfa118624d737fd617d38693196f4
+          - bundle exec rake cucumber; ./cc-test-reporter after-build --exit-code $?
