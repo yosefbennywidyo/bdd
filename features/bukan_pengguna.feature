@@ -20,18 +20,18 @@ Skenario: Mengunjungi aplikasi
 	Dan saya dapat melihat Data Pendidikan Agama Katolik
 	Dan saya dapat melihat Informasi Berita Terkini
 	Dan saya dapat melihat Informasi Pengumuman
-	Tapi saya tidak dapat membuat Data Keagamaan Katolik
+	Maka saya tidak dapat membuat Data Keagamaan Katolik
 	Dan saya tidak dapat membuat Data Pendidikan Agama Katolik
 	Dan saya tidak dapat membuat Informasi Berita Terkini
 	Dan saya tidak dapat membuat Informasi Pengumuman
-	Tapi saya tidak dapat mengedit Data Keagamaan Katolik
+	Maka saya tidak dapat mengedit Data Keagamaan Katolik
 	Dan saya tidak dapat mengedit Data Pendidikan Agama Katolik
 	Dan saya tidak dapat mengedit Informasi Berita Terkini
 	Dan saya tidak dapat mengedit Informasi Pengumuman
-	Tapi saya tidak dapat menghapus Data Keagamaan Katolik
+	Maka saya tidak dapat menghapus Data Keagamaan Katolik
 	Dan saya tidak dapat menghapus Data Pendidikan Agama Katolik
 	Dan saya tidak dapat menghapus Informasi Berita Terkini
 	Dan saya tidak dapat menghapus Informasi Pengumuman
-	Tapi saya tidak dapat melihat Laporan Guru Agama Katolik
+	Maka saya tidak dapat melihat Laporan Guru Agama Katolik
 	Dan saya tidak dapat melihat Laporan Penyuluh Agama Katolik
 	Dan saya tidak dapat melihat Laporan Pegawai Bimkat Sumteng
