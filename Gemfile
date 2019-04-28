@@ -3,6 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+# Boostrap
+gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap_form', '>= 4.2.0'
+# jQuery
+gem 'jquery-rails'
+# Font Awesome
+gem 'font-awesome-rails'
+# Rails locale
+gem 'rails-i18n', '~> 5.1'
 # Launchy
 gem 'launchy'
 # Travis CI
