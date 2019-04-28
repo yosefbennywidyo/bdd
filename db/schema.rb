@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_28_032512) do
+ActiveRecord::Schema.define(version: 2019_04_28_042613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2019_04_28_032512) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pengguna_id"], name: "index_data_keagamaan_katolik_on_pengguna_id"
+  end
+
+  create_table "data_pendidikan_agama_katolik", force: :cascade do |t|
+    t.string "judul"
+    t.string "keterangan"
+    t.bigint "pengguna_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pengguna_id"], name: "index_data_pendidikan_agama_katolik_on_pengguna_id"
   end
 
   create_table "pengguna", force: :cascade do |t|
@@ -40,4 +49,5 @@ ActiveRecord::Schema.define(version: 2019_04_28_032512) do
   end
 
   add_foreign_key "data_keagamaan_katolik", "pengguna"
+  add_foreign_key "data_pendidikan_agama_katolik", "pengguna"
 end
