@@ -93,5 +93,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Rails internationalization
-  config.i18n.available_locales = :id
+  config.i18n.default_locale = :id
 end
