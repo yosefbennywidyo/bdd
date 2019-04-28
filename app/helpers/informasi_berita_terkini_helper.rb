@@ -1,0 +1,2 @@
+module InformasiBeritaTerkiniHelper
+end

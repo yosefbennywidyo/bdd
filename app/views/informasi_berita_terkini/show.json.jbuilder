@@ -1,0 +1,1 @@
+json.partial! "informasi_berita_terkini/informasi_berita_terkini", informasi_berita_terkini: @informasi_berita_terkini

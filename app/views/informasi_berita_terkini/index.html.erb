@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Informasi Berita Terkini</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Judul</th>
+      <th>Keterangan</th>
+      <th>Tautan</th>
+      <th>Pengguna</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @informasi_berita_terkini.each do |informasi_berita_terkini| %>
+      <tr>
+        <td><%= informasi_berita_terkini.judul %></td>
+        <td><%= informasi_berita_terkini.keterangan %></td>
+        <td><%= informasi_berita_terkini.tautan %></td>
+        <td><%= informasi_berita_terkini.pengguna %></td>
+        <td><%= link_to 'Show', informasi_berita_terkini %></td>
+        <td><%= link_to 'Edit', edit_informasi_berita_terkini_path(informasi_berita_terkini) %></td>
+        <td><%= link_to 'Destroy', informasi_berita_terkini, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Informasi Berita Terkini', new_informasi_berita_terkini_path %>

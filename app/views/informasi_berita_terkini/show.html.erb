@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Judul:</strong>
+  <%= @informasi_berita_terkini.judul %>
+</p>
+
+<p>
+  <strong>Keterangan:</strong>
+  <%= @informasi_berita_terkini.keterangan %>
+</p>
+
+<p>
+  <strong>Tautan:</strong>
+  <%= @informasi_berita_terkini.tautan %>
+</p>
+
+<p>
+  <strong>Pengguna:</strong>
+  <%= @informasi_berita_terkini.pengguna %>
+</p>
+
+<%= link_to 'Edit', edit_informasi_berita_terkini_path(@informasi_berita_terkini) %> |
+<%= link_to 'Back', informasi_berita_terkini_index_path %>
