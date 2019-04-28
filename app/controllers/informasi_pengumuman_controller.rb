@@ -24,8 +24,8 @@ class InformasiPengumumanController < ApplicationController
   # POST /informasi_pengumuman
   # POST /informasi_pengumuman.json
   def create
-    @informasi_pengumuman = InformasiPengumuman.new(informasi_pengumuman_params)
-
+    @informasi_pengumuman.pengguna_id = current_pengguna.id
+    
     respond_to do |format|
       if @informasi_pengumuman.save
         format.html { redirect_to @informasi_pengumuman, notice: 'Informasi pengumuman was successfully created.' }

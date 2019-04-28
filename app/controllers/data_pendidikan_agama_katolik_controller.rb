@@ -24,8 +24,8 @@ class DataPendidikanAgamaKatolikController < ApplicationController
   # POST /data_pendidikan_agama_katolik
   # POST /data_pendidikan_agama_katolik.json
   def create
-    @data_pendidikan_agama_katolik = DataPendidikanAgamaKatolik.new(data_pendidikan_agama_katolik_params)
-
+    @data_pendidikan_agama_katolik.pengguna_id = current_pengguna.id
+    
     respond_to do |format|
       if @data_pendidikan_agama_katolik.save
         format.html { redirect_to @data_pendidikan_agama_katolik, notice: 'Data pendidikan agama katolik was successfully created.' }

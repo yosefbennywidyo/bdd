@@ -24,8 +24,8 @@ class InformasiBeritaTerkiniController < ApplicationController
   # POST /informasi_berita_terkini
   # POST /informasi_berita_terkini.json
   def create
-    @informasi_berita_terkini = InformasiBeritaTerkini.new(informasi_berita_terkini_params)
-
+    @informasi_berita_terkini.pengguna_id = current_pengguna.id
+    
     respond_to do |format|
       if @informasi_berita_terkini.save
         format.html { redirect_to @informasi_berita_terkini, notice: 'Informasi berita terkini was successfully created.' }
