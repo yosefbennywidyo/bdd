@@ -1,7 +1,7 @@
 <% if current_pengguna %>
 <%= link_to 'Edit Akun', edit_pengguna_registration_path %>
-<%= link_to 'Keluar', destroy_pengguna_session_path, method: :delete %>
+<%= link_to 'Sign Out', destroy_pengguna_session_path, method: :delete %>
 <% else %>
-<%= link_to 'Masuk', new_pengguna_session_path %>
-<%= link_to 'Mendaftar', new_pengguna_registration_path %>
+<%= link_to 'Sign In', new_pengguna_session_path %>
+<%= link_to 'Sign Up', new_pengguna_registration_path %>
 <% end %>

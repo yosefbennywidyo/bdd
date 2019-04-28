@@ -1,8 +1,8 @@
 Ketika("saya mencoba mengisi formulir masuk") do
-	click_link "Masuk"
+	click_link "Sign In"
 	fill_in "Email", :with => "pemirsa@user.test"
 	fill_in "Password", :with => "pa$$word"
-	click_button "Masuk"
+	click_button "Sign In"
 end
 
 Tapi("saya tidak berhasil masuk aplikasi") do
@@ -27,10 +27,10 @@ end
 
 Maka("saya tidak dapat membuat Data Keagamaan Katolik") do
 	visit new_data_keagamaan_katolik_path
-	fill_in "Judul", :with => "judul data keagamaan katolik yang dibuat oleh bukan pengguna"
-	fill_in "Keterangan", :with => "keterangan data keagamaan katolik yang dibuat oleh bukan pengguna"
+	# fill_in "Judul", :with => "judul data keagamaan katolik yang dibuat oleh bukan pengguna"
+	# fill_in "Keterangan", :with => "keterangan data keagamaan katolik yang dibuat oleh bukan pengguna"
+	# click_button "Membuat"
 	# save_and_open_page
-	click_button "Membuat"
 	expect(page).to have_content("Maaf, Anda tidak berhak membuatnya.")
 end
 
@@ -39,7 +39,7 @@ Dan("saya tidak dapat membuat Data Pendidikan Agama Katolik") do
 	fill_in "Judul", :with => "judul data pendidikan agama katolik yang dibuat oleh bukan pengguna"
 	fill_in "Keterangan", :with => "keterangan data pendidikan agama katolik yang dibuat oleh bukan pengguna"
 	click_button "Membuat"
-	expect(page).to have_content("Maaf, Anda tidak berhak membuatnya.")
+	expect(page).to have_content("Anda harus mendaftar atau sign in sebelum melanjutkan.")
 end
 
 Dan("saya tidak dapat membuat Informasi Berita Terkini") do
