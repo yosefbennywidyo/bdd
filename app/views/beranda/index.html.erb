@@ -18,8 +18,12 @@
         <td><%= data_keagamaan_katolik.keterangan %></td>
         <td><%= data_keagamaan_katolik.tautan %></td>
         <td><%= link_to 'Tampilkan', data_keagamaan_katolik %></td>
+      <% if pengguna_signed_in? %>
+        <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? %>
         <td><%= link_to 'Edit', edit_data_keagamaan_katolik_path(data_keagamaan_katolik) %></td>
         <td><%= link_to 'Hapus', data_keagamaan_katolik, method: :delete, data: { confirm: 'Anda yakin mau menghapusnya?' } %></td>
+        <% end %>
+      <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -4,6 +4,7 @@ class BerandaController < ApplicationController
   	@data_pendidikan_agama_katolik = DataPendidikanAgamaKatolik.all
   	@informasi_berita_terkini = InformasiBeritaTerkini.all
   	@informasi_pengumuman = InformasiPengumuman.all
+    @pengguna = current_pengguna
   end
 
   	# Use callbacks to share common setup or constraints between actions.
