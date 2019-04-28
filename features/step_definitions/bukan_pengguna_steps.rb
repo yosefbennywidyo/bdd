@@ -29,6 +29,7 @@ Maka("saya tidak dapat membuat Data Keagamaan Katolik") do
 	visit new_data_keagamaan_katolik_path
 	fill_in "Judul", :with => "judul data keagamaan katolik yang dibuat oleh bukan pengguna"
 	fill_in "Keterangan", :with => "keterangan data keagamaan katolik yang dibuat oleh bukan pengguna"
+	# save_and_open_page
 	click_button "Membuat"
 	expect(page).to have_content("Maaf, Anda tidak berhak membuatnya.")
 end
