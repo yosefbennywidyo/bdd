@@ -13,7 +13,7 @@ Maka("saya dapat melihat Data Keagamaan Katolik") do
 	visit data_keagamaan_katolik_index_path
 end
 
-Tapi("saya tidak dapat membuat Data Pendidikan Agama Katolik") do
+Tapi("saya tidak dapat membuat Data Keagamaan Katolik") do
 	visit new_data_keagamaan_katolik_path
 	fill_in "Judul", :with => "judul yang dibuat oleh bukan pengguna"
 	fill_in "Keterangan", :with => "keterangan yang dibuat oleh bukan pengguna"
