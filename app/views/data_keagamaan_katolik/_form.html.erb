@@ -1,7 +1,7 @@
-<%= form_with(model: data_keagamaan_katolik, local: true) do |form| %>
+<%= bootstrap_form_for(@data_keagamaan_katolik) do |f| %>
   <% if data_keagamaan_katolik.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(data_keagamaan_katolik.errors.count, "error") %> prohibited this data_keagamaan_katolik from being saved:</h2>
+      <h2><%= pluralize(data_keagamaan_katolik.errors.count, "error") %> mengakibatkan Data Keagamaan Katolik tidak dapat disimpan:</h2>
 
       <ul>
       <% data_keagamaan_katolik.errors.full_messages.each do |message| %>
@@ -11,22 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :judul %>
-    <%= form.text_field :judul %>
-  </div>
-
-  <div class="field">
-    <%= form.label :keterangan %>
-    <%= form.text_field :keterangan %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pengguna_id %>
-    <%= form.text_field :pengguna_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= f.text_field :judul %>
+  <%= f.text_field :keterangan %>
+  <%= f.submit "Membuat Data Keagamaan Katolik" %>
 <% end %>
