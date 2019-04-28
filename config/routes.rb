@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :data_keagamaan_katolik
   devise_for :pengguna
 	root to: "beranda#index"
   get 'beranda/index'

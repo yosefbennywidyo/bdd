@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Data Keagamaan Katolik</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Judul</th>
+      <th>Keterangan</th>
+      <th>Pengguna</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @data_keagamaan_katolik.each do |data_keagamaan_katolik| %>
+      <tr>
+        <td><%= data_keagamaan_katolik.judul %></td>
+        <td><%= data_keagamaan_katolik.keterangan %></td>
+        <td><%= data_keagamaan_katolik.pengguna %></td>
+        <td><%= link_to 'Show', data_keagamaan_katolik %></td>
+        <td><%= link_to 'Edit', edit_data_keagamaan_katolik_path(data_keagamaan_katolik) %></td>
+        <td><%= link_to 'Destroy', data_keagamaan_katolik, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Data Keagamaan Katolik', new_data_keagamaan_katolik_path %>
