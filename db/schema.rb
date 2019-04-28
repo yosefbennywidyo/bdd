@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_28_045519) do
+ActiveRecord::Schema.define(version: 2019_04_28_045930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 2019_04_28_045519) do
     t.index ["pengguna_id"], name: "index_informasi_berita_terkini_on_pengguna_id"
   end
 
+  create_table "informasi_pengumuman", force: :cascade do |t|
+    t.string "judul"
+    t.string "keterangan"
+    t.string "tautan"
+    t.bigint "pengguna_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pengguna_id"], name: "index_informasi_pengumuman_on_pengguna_id"
+  end
+
   create_table "pengguna", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -61,4 +71,5 @@ ActiveRecord::Schema.define(version: 2019_04_28_045519) do
   add_foreign_key "data_keagamaan_katolik", "pengguna"
   add_foreign_key "data_pendidikan_agama_katolik", "pengguna"
   add_foreign_key "informasi_berita_terkini", "pengguna"
+  add_foreign_key "informasi_pengumuman", "pengguna"
 end
