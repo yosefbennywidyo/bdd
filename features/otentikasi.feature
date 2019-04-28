@@ -7,6 +7,17 @@ Fitur: Otentikasi
 	Sebagai pengguna
 	saya dapat melihat beranda, mendaftar, masuk, dan keluar
 
+Skenario: Seed data keagamaan katolik
+	Dengan data keagamaan katolik tersedia di database
+
+Skenario: Seed data pendidikan agama katolik
+	Dengan data pendidikan agama katolik tersedia di database
+
+Skenario: Seed informasi berita terkini
+	Dengan informasi berita terkini tersedia di database
+
+Skenario: Seed informasi pengumuman
+	Dengan informasi pengumuman tersedia di database
 
 Skenario: Mengunjungi aplikasi
 	Dengan saya mengunjungi aplikasi berbasis web
