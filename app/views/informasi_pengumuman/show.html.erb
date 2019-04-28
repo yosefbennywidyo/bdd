@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Judul:</strong>
+  <%= @informasi_pengumuman.judul %>
+</p>
+
+<p>
+  <strong>Keterangan:</strong>
+  <%= @informasi_pengumuman.keterangan %>
+</p>
+
+<p>
+  <strong>Tautan:</strong>
+  <%= @informasi_pengumuman.tautan %>
+</p>
+
+<p>
+  <strong>Pengguna:</strong>
+  <%= @informasi_pengumuman.pengguna %>
+</p>
+
+<%= link_to 'Edit', edit_informasi_pengumuman_path(@informasi_pengumuman) %> |
+<%= link_to 'Back', informasi_pengumuman_index_path %>
