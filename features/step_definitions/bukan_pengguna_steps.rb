@@ -1,8 +1,8 @@
 Ketika("saya mencoba mengisi formulir masuk") do
-	click_link "Sign In"
+	click_link "Masuk"
 	fill_in "Email", :with => "pemirsa@user.test"
 	fill_in "Password", :with => "pa$$word"
-	click_button "Sign In"
+	click_button "Masuk"
 end
 
 Tapi("saya tidak berhasil masuk aplikasi") do
@@ -31,61 +31,61 @@ Maka("saya tidak dapat membuat Data Keagamaan Katolik") do
 	# fill_in "Keterangan", :with => "keterangan data keagamaan katolik yang dibuat oleh bukan pengguna"
 	# click_button "Membuat"
 	# save_and_open_page
-	expect(page).to have_content("Anda harus mendaftar atau sign in sebelum melanjutkan.")
+	expect(page).to have_content("Anda harus mendaftar atau masuk sebelum melanjutkan.")
 end
 
 Dan("saya tidak dapat membuat Data Pendidikan Agama Katolik") do
 	visit new_data_pendidikan_agama_katolik_path
-	expect(page).to have_content("Anda harus mendaftar atau sign in sebelum melanjutkan.")
+	expect(page).to have_content("Anda harus mendaftar atau masuk sebelum melanjutkan.")
 end
 
 Dan("saya tidak dapat membuat Informasi Berita Terkini") do
 	visit new_informasi_berita_terkini_path
-	expect(page).to have_content("Anda harus mendaftar atau sign in sebelum melanjutkan.")
+	expect(page).to have_content("Anda harus mendaftar atau masuk sebelum melanjutkan.")
 end
 
 Dan("saya tidak dapat membuat Informasi Pengumuman") do
 	visit new_informasi_pengumuman_path
-	expect(page).to have_content("Anda harus mendaftar atau sign in sebelum melanjutkan.")
+	expect(page).to have_content("Anda harus mendaftar atau masuk sebelum melanjutkan.")
 end
 
 Maka("saya tidak dapat mengedit Data Pendidikan Agama Katolik") do
-	visit edit_data_keagamaan_katolik_path
+	visit data_keagamaan_katolik_index_path
 	expect(page).to have_content("Maaf, Anda tidak berhak mengeditnya.")
 end
 
 Dan("saya tidak dapat mengedit Data Keagamaan Katolik") do
-	visit edit_data_keagamaan_katolik_path
+	visit data_keagamaan_katolik_index_path
 	expect(page).to have_content("Maaf, Anda tidak berhak mengeditnya.")
 end
 
 Dan("saya tidak dapat mengedit Informasi Berita Terkini") do
-	visit edit_informasi_berita_terkini_path
+	visit informasi_berita_terkini_index_path
 	expect(page).to have_content("Maaf, Anda tidak berhak mengeditnya.")
 end
 
 Dan("saya tidak dapat mengedit Informasi Pengumuman") do
-	visit edit_informasi_berita_terkini_path
+	visit informasi_berita_terkini_index_path
 	expect(page).to have_content("Maaf, Anda tidak berhak mengeditnya.")
 end
 
 Maka("saya tidak dapat menghapus Data Pendidikan Agama Katolik") do
-	visit data_keagamaan_katolik_path
+	visit data_pendidikan_agama_katolik_index_path
 	expect(page).to have_content("Maaf, Anda tidak berhak menghapusnya.")
 end
 
 Dan("saya tidak dapat menghapus Data Keagamaan Katolik") do
-	visit data_keagamaan_katolik_path
+	visit data_keagamaan_katolik_index_path
 	expect(page).to have_content("Maaf, Anda tidak berhak menghapusnya.")
 end
 
 Dan("saya tidak dapat menghapus Informasi Berita Terkini") do
-	visit data_keagamaan_katolik_path
+	visit informasi_berita_terkini_index_path
 	expect(page).to have_content("Maaf, Anda tidak berhak menghapusnya.")
 end
 
 Dan("saya tidak dapat menghapus Informasi Pengumuman") do
-	visit data_keagamaan_katolik_path
+	visit informasi_pengumuman_index_path
 	expect(page).to have_content("Maaf, Anda tidak berhak menghapusnya.")
 end
 

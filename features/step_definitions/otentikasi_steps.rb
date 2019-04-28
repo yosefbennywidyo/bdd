@@ -7,11 +7,11 @@ Maka("saya berada di Beranda") do
 end
 
 Ketika("saya mengisi form pendaftaran") do
-	click_link "Sign Up"
+	click_link "Mendaftar"
 	fill_in "Email", :with => "tester@testdomain.test"
 	fill_in "Password", :with => "pa$$word"
 	fill_in "Password confirmation", :with => "pa$$word"
-	click_button "Sign Up"
+	click_button "Mendaftar"
 end
 
 Dan("saya mengonfirmasi email") do
@@ -35,10 +35,10 @@ Dan("saya mengunjungi Beranda aplikasi") do
 end
 
 Ketika("saya mengisi formulir masuk") do
-	click_link "Sign In"
+	click_link "Masuk"
 	fill_in "Email", :with => "tester@testdomain.test"
 	fill_in "Password", :with => "pa$$word"
-	click_button "Sign In"
+	click_button "Masuk"
 end
 
 Dan("saya berhasil masuk aplikasi") do
@@ -46,7 +46,7 @@ Dan("saya berhasil masuk aplikasi") do
 end
 
 Dan("saya tekan tombol keluar") do
-	click_link "Sign Out"
+	click_link "Keluar"
 end
 
 Maka("saya dialihkan ke halaman masuk") do
