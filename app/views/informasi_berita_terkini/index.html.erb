@@ -20,9 +20,9 @@
         <td><%= informasi_berita_terkini.keterangan %></td>
         <td><%= informasi_berita_terkini.tautan %></td>
         <td><%= informasi_berita_terkini.pengguna %></td>
-        <td><%= link_to 'Show', informasi_berita_terkini %></td>
+        <td><%= link_to 'Tampilkan', informasi_berita_terkini %></td>
         <td><%= link_to 'Edit', edit_informasi_berita_terkini_path(informasi_berita_terkini) %></td>
-        <td><%= link_to 'Destroy', informasi_berita_terkini, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Hapus', informasi_berita_terkini, method: :delete, data: { confirm: 'Anda yakin mau menghapusnya?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Informasi Berita Terkini', new_informasi_berita_terkini_path %>
+<%= link_to 'Membuat Informasi Berita Terkini', new_informasi_berita_terkini_path %>

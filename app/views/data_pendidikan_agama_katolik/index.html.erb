@@ -18,9 +18,9 @@
         <td><%= data_pendidikan_agama_katolik.judul %></td>
         <td><%= data_pendidikan_agama_katolik.keterangan %></td>
         <td><%= data_pendidikan_agama_katolik.pengguna %></td>
-        <td><%= link_to 'Show', data_pendidikan_agama_katolik %></td>
+        <td><%= link_to 'Tampilkan', data_pendidikan_agama_katolik %></td>
         <td><%= link_to 'Edit', edit_data_pendidikan_agama_katolik_path(data_pendidikan_agama_katolik) %></td>
-        <td><%= link_to 'Destroy', data_pendidikan_agama_katolik, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Hapus', data_pendidikan_agama_katolik, method: :delete, data: { confirm: 'Anda yakin mau menghapusnya?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Data Pendidikan Agama Katolik', new_data_pendidikan_agama_katolik_path %>
+<%= link_to 'Membuat Data Pendidikan Agama Katolik', new_data_pendidikan_agama_katolik_path %>

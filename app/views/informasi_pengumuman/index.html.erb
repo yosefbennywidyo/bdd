@@ -20,9 +20,9 @@
         <td><%= informasi_pengumuman.keterangan %></td>
         <td><%= informasi_pengumuman.tautan %></td>
         <td><%= informasi_pengumuman.pengguna %></td>
-        <td><%= link_to 'Show', informasi_pengumuman %></td>
+        <td><%= link_to 'Tampilkan', informasi_pengumuman %></td>
         <td><%= link_to 'Edit', edit_informasi_pengumuman_path(informasi_pengumuman) %></td>
-        <td><%= link_to 'Destroy', informasi_pengumuman, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Hapus', informasi_pengumuman, method: :delete, data: { confirm: 'Anda yakin mau menghapusnya?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Informasi Pengumuman', new_informasi_pengumuman_path %>
+<%= link_to 'Membuat Informasi Pengumuman', new_informasi_pengumuman_path %>
