@@ -17,5 +17,8 @@ module Bdd
     # the framework and any gems in your application.
 
     config.i18n.default_locale = :id
+
+    # Rails timezone
+    config.time_zone = 'Asia/Hong_Kong'
   end
 end
