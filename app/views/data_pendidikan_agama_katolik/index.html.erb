@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Data Pendidikan Agama Katolik</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Judul</th>
+      <th>Keterangan</th>
+      <th>Pengguna</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @data_pendidikan_agama_katolik.each do |data_pendidikan_agama_katolik| %>
+      <tr>
+        <td><%= data_pendidikan_agama_katolik.judul %></td>
+        <td><%= data_pendidikan_agama_katolik.keterangan %></td>
+        <td><%= data_pendidikan_agama_katolik.pengguna %></td>
+        <td><%= link_to 'Show', data_pendidikan_agama_katolik %></td>
+        <td><%= link_to 'Edit', edit_data_pendidikan_agama_katolik_path(data_pendidikan_agama_katolik) %></td>
+        <td><%= link_to 'Destroy', data_pendidikan_agama_katolik, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Data Pendidikan Agama Katolik', new_data_pendidikan_agama_katolik_path %>
