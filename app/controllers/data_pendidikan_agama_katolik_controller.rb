@@ -1,4 +1,5 @@
 class DataPendidikanAgamaKatolikController < ApplicationController
+  before_action :authenticate_pengguna!, :except => [:index, :show]
   before_action :set_data_pendidikan_agama_katolik, only: [:show, :edit, :update, :destroy]
 
   # GET /data_pendidikan_agama_katolik

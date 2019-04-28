@@ -1,4 +1,5 @@
 class InformasiBeritaTerkiniController < ApplicationController
+  before_action :authenticate_pengguna!, :except => [:index, :show]
   before_action :set_informasi_berita_terkini, only: [:show, :edit, :update, :destroy]
 
   # GET /informasi_berita_terkini

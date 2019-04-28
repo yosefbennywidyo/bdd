@@ -1,4 +1,5 @@
 class InformasiPengumumanController < ApplicationController
+  before_action :authenticate_pengguna!, :except => [:index, :show]
   before_action :set_informasi_pengumuman, only: [:show, :edit, :update, :destroy]
 
   # GET /informasi_pengumuman
