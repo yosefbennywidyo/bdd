@@ -12,29 +12,21 @@ end
 Maka("saya dapat melihat Data Keagamaan Katolik") do
 	visit data_keagamaan_katolik_index_path
 	expect(page).to have_content("Daftar Data Keagamaan Katolik")
-	click_link "Tampilkan"
-	click_link "Batal"
 end
 
 Dan("saya dapat melihat Data Pendidikan Agama Katolik") do
 	visit data_pendidikan_agama_katolik_index_path
 	expect(page).to have_content("Daftar Data Pendidikan Agama Katolik")
-	click_link "Tampilkan"
-	click_link "Batal"
 end
 
 Dan("saya dapat melihat Informasi Berita Terkini") do
 	visit informasi_berita_terkini_index_path
 	expect(page).to have_content("Daftar Informasi Berita Terkini")
-	click_link "Tampilkan"
-	click_link "Batal"
 end
 
 Dan("saya dapat melihat Informasi Pengumuman") do
 	visit informasi_pengumuman_index_path
 	expect(page).to have_content("Daftar Informasi Pengumuman")
-	click_link "Tampilkan"
-	click_link "Batal"
 end
 
 Maka("saya tidak dapat membuat Data Keagamaan Katolik") do
@@ -42,7 +34,7 @@ Maka("saya tidak dapat membuat Data Keagamaan Katolik") do
 	# fill_in "Judul", :with => "judul data keagamaan katolik yang dibuat oleh bukan pengguna"
 	# fill_in "Keterangan", :with => "keterangan data keagamaan katolik yang dibuat oleh bukan pengguna"
 	# click_button "Membuat"
-	# save_and_open_page
+	
 	expect(page).to have_content("Anda harus mendaftar atau masuk sebelum melanjutkan.")
 end
 
@@ -62,27 +54,36 @@ Dan("saya tidak dapat membuat Informasi Pengumuman") do
 end
 
 Maka("saya tidak dapat mengedit Data Pendidikan Agama Katolik") do
-	visit data_keagamaan_katolik_index_path
-	expect(page).to have_content("Daftar Data Pendidikan Agama Katolik")
+	visit '/data_pendidikan_agama_katolik/1'
+	expect(page).to have_content("Judul: Judul data pendidikan agama katolik ke-0")
+	save_and_open_page
 	click_link "Edit"
+	page.find_link('Batal').text
+	click_link "Batal"
 end
 
 Dan("saya tidak dapat mengedit Data Keagamaan Katolik") do
-	visit data_keagamaan_katolik_index_path
-	expect(page).to have_content("Daftar Data Keagamaan Katolik")
+	visit '/data_keagamaan_katolik/1'
+	expect(page).to have_content("Judul: Judul data keagamaan katolik ke-0")
 	click_link "Edit"
+	page.find_link('Batal').text
+	click_link "Batal"
 end
 
 Dan("saya tidak dapat mengedit Informasi Berita Terkini") do
-	visit informasi_berita_terkini_index_path
-	expect(page).to have_content("Daftar Informasi Berita Terkini")
+	visit '/informasi_berita_terkini/1'
+	expect(page).to have_content("Judul: Judul informasi berita terkini ke-0")
 	click_link "Edit"
+	page.find_link('Batal').text
+	click_link "Batal"
 end
 
 Dan("saya tidak dapat mengedit Informasi Pengumuman") do
-	visit informasi_berita_terkini_index_path
-	expect(page).to have_content("Daftar Informasi Pengumuman")
+	visit '/informasi_pengumuman/1'
+	expect(page).to have_content("Judul: Judul informasi pengumuman ke-0")
 	click_link "Edit"
+	page.find_link('Batal').text
+	click_link "Batal"
 end
 
 Maka("saya tidak dapat menghapus Data Pendidikan Agama Katolik") do
