@@ -11,18 +11,30 @@ end
 
 Maka("saya dapat melihat Data Keagamaan Katolik") do
 	visit data_keagamaan_katolik_index_path
+	expect(page).to have_content("Daftar Data Keagamaan Katolik")
+	click_link "Tampilkan"
+	click_link "Batal"
 end
 
 Dan("saya dapat melihat Data Pendidikan Agama Katolik") do
 	visit data_pendidikan_agama_katolik_index_path
+	expect(page).to have_content("Daftar Data Pendidikan Agama Katolik")
+	click_link "Tampilkan"
+	click_link "Batal"
 end
 
 Dan("saya dapat melihat Informasi Berita Terkini") do
 	visit informasi_berita_terkini_index_path
+	expect(page).to have_content("Daftar Informasi Berita Terkini")
+	click_link "Tampilkan"
+	click_link "Batal"
 end
 
 Dan("saya dapat melihat Informasi Pengumuman") do
 	visit informasi_pengumuman_index_path
+	expect(page).to have_content("Daftar Informasi Pengumuman")
+	click_link "Tampilkan"
+	click_link "Batal"
 end
 
 Maka("saya tidak dapat membuat Data Keagamaan Katolik") do
@@ -51,42 +63,50 @@ end
 
 Maka("saya tidak dapat mengedit Data Pendidikan Agama Katolik") do
 	visit data_keagamaan_katolik_index_path
-	expect(page).to have_content("Maaf, Anda tidak berhak mengeditnya.")
+	expect(page).to have_content("Daftar Data Pendidikan Agama Katolik")
+	click_link "Edit"
 end
 
 Dan("saya tidak dapat mengedit Data Keagamaan Katolik") do
 	visit data_keagamaan_katolik_index_path
-	expect(page).to have_content("Maaf, Anda tidak berhak mengeditnya.")
+	expect(page).to have_content("Daftar Data Keagamaan Katolik")
+	click_link "Edit"
 end
 
 Dan("saya tidak dapat mengedit Informasi Berita Terkini") do
 	visit informasi_berita_terkini_index_path
-	expect(page).to have_content("Maaf, Anda tidak berhak mengeditnya.")
+	expect(page).to have_content("Daftar Informasi Berita Terkini")
+	click_link "Edit"
 end
 
 Dan("saya tidak dapat mengedit Informasi Pengumuman") do
 	visit informasi_berita_terkini_index_path
-	expect(page).to have_content("Maaf, Anda tidak berhak mengeditnya.")
+	expect(page).to have_content("Daftar Informasi Pengumuman")
+	click_link "Edit"
 end
 
 Maka("saya tidak dapat menghapus Data Pendidikan Agama Katolik") do
 	visit data_pendidikan_agama_katolik_index_path
-	expect(page).to have_content("Maaf, Anda tidak berhak menghapusnya.")
+	expect(page).to have_content("Daftar Data Pendidikan Agama Katolik")
+	click_link "Hapus"
 end
 
 Dan("saya tidak dapat menghapus Data Keagamaan Katolik") do
 	visit data_keagamaan_katolik_index_path
-	expect(page).to have_content("Maaf, Anda tidak berhak menghapusnya.")
+	expect(page).to have_content("Daftar Data Keagamaan Katolik")
+	click_link "Hapus"
 end
 
 Dan("saya tidak dapat menghapus Informasi Berita Terkini") do
 	visit informasi_berita_terkini_index_path
-	expect(page).to have_content("Maaf, Anda tidak berhak menghapusnya.")
+	expect(page).to have_content("Daftar Informasi Berita Terkini")
+	click_link "Hapus"
 end
 
 Dan("saya tidak dapat menghapus Informasi Pengumuman") do
 	visit informasi_pengumuman_index_path
-	expect(page).to have_content("Maaf, Anda tidak berhak menghapusnya.")
+	expect(page).to have_content("Daftar Informasi Pengumuman")
+	click_link "Hapus"
 end
 
 Maka("saya tidak dapat melihat Laporan Guru Agama Katolik") do
