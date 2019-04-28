@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_26_004348) do
+ActiveRecord::Schema.define(version: 2019_04_28_032512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "data_keagamaan_katolik", force: :cascade do |t|
+    t.string "judul"
+    t.string "keterangan"
+    t.bigint "pengguna_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pengguna_id"], name: "index_data_keagamaan_katolik_on_pengguna_id"
+  end
 
   create_table "pengguna", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,4 +39,5 @@ ActiveRecord::Schema.define(version: 2019_04_26_004348) do
     t.index ["reset_password_token"], name: "index_pengguna_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "data_keagamaan_katolik", "pengguna"
 end
