@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Data Pendidikan Agama Katolik</h1>
+<h1>Daftar Data Pendidikan Agama Katolik</h1>
 
 <table>
   <thead>
     <tr>
       <th>Judul</th>
       <th>Keterangan</th>
-      <th>Pengguna</th>
+      <th>Tautan</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +15,7 @@
       <tr>
         <td><%= data_pendidikan_agama_katolik.judul %></td>
         <td><%= data_pendidikan_agama_katolik.keterangan %></td>
-        <td><%= data_pendidikan_agama_katolik.pengguna %></td>
+        <td><%= data_pendidikan_agama_katolik.tautan %></td>
         <td><%= link_to 'Tampilkan', data_pendidikan_agama_katolik %></td>
         <td><%= link_to 'Edit', edit_data_pendidikan_agama_katolik_path(data_pendidikan_agama_katolik) %></td>
         <td><%= link_to 'Hapus', data_pendidikan_agama_katolik, method: :delete, data: { confirm: 'Anda yakin mau menghapusnya?' } %></td>
