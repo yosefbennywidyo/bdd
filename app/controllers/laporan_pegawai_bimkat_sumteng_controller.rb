@@ -1,4 +1,5 @@
 class LaporanPegawaiBimkatSumtengController < ApplicationController
+  before_action :authenticate_pengguna!
   before_action :set_laporan_pegawai_bimkat_sumteng, only: [:show, :edit, :update, :destroy]
 
   # GET /laporan_pegawai_bimkat_sumteng

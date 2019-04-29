@@ -13,6 +13,7 @@ class Pengguna < ApplicationRecord
   has_many :informasi_pengumuman, dependent: :destroy
   has_many :laporan_guru_agama_katolik, dependent: :destroy
   has_many :laporan_penyuluh_agama_katolik, dependent: :destroy
+  has_many :laporan_pegawai_bimkat_sumteng, dependent: :destroy
 
   def set_peran_default
     self.peran ||= :pemirsa
