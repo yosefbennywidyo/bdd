@@ -1,4 +1,4 @@
-<%= form_with(model: laporan_pegawai_bimkat_sumteng, local: true) do |form| %>
+<%= bootstrap_form_for(model: laporan_pegawai_bimkat_sumteng, local: true) do |form| %>
   <% if laporan_pegawai_bimkat_sumteng.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(laporan_pegawai_bimkat_sumteng.errors.count, "error") %> prohibited this laporan_pegawai_bimkat_sumteng from being saved:</h2>

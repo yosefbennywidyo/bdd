@@ -1,13 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Laporan Pegawai Bimkat Sumteng</h1>
+<h1>Daftar Laporan Pegawai Bimkat Sumteng</h1>
 
 <table>
   <thead>
     <tr>
       <th>Judul</th>
       <th>Tautan</th>
-      <th>Pengguna</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,10 +14,9 @@
       <tr>
         <td><%= laporan_pegawai_bimkat_sumteng.judul %></td>
         <td><%= laporan_pegawai_bimkat_sumteng.tautan %></td>
-        <td><%= laporan_pegawai_bimkat_sumteng.pengguna %></td>
-        <td><%= link_to 'Show', laporan_pegawai_bimkat_sumteng %></td>
+        <td><%= link_to 'Tampilkan', laporan_pegawai_bimkat_sumteng %></td>
         <td><%= link_to 'Edit', edit_laporan_pegawai_bimkat_sumteng_path(laporan_pegawai_bimkat_sumteng) %></td>
-        <td><%= link_to 'Destroy', laporan_pegawai_bimkat_sumteng, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Hapus', laporan_pegawai_bimkat_sumteng, method: :delete, data: { confirm: 'Anda yakin ingin menghapusnya?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Laporan Pegawai Bimkat Sumteng', new_laporan_pegawai_bimkat_sumteng_path %>
+<%= link_to 'Membuat Laporan Pegawai Bimkat Sumteng', new_laporan_pegawai_bimkat_sumteng_path %>

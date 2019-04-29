@@ -1,4 +1,4 @@
-<%= form_with(model: laporan_penyuluh_agama_katolik, local: true) do |form| %>
+<%= bootstrap_form_for(model: laporan_penyuluh_agama_katolik, local: true) do |form| %>
   <% if laporan_penyuluh_agama_katolik.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(laporan_penyuluh_agama_katolik.errors.count, "error") %> prohibited this laporan_penyuluh_agama_katolik from being saved:</h2>
