@@ -3,7 +3,10 @@ Dengan("saya mengunjungi aplikasi berbasis web") do
 end
 
 Maka("saya berada di Beranda") do
-	find("h1", :text => "Selamat datang di Aplikasi Web Bimas Katolik Sumba Tengah")
+	find("h2", :text => "Daftar Data Keagamaan Katolik")
+	find("h2", :text => "Daftar Data Pendidikan Agama Katolik")
+	find("h2", :text => "Daftar Informasi Berita Terkini")
+	find("h2", :text => "Daftar Informasi Pengumuman")
 end
 
 Ketika("saya mengisi form pendaftaran") do
