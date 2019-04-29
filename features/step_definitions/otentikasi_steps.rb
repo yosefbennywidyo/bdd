@@ -26,6 +26,7 @@ end
 
 Dengan("saya sebagai pengguna terdaftar") do
 	@registered_pengguna = FactoryBot.create(:pengguna,
+		:nama_lengkap => "tester",
 		:email => "tester@testdomain.test",
 		:password => "pa$$word")
 end

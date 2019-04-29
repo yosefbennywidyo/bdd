@@ -17,16 +17,15 @@ Skenario: Pemirsa masuk ke aplikasi
 Skenario: Mendaftar sebagai Pemirsa
 	Dengan saya mengunjungi aplikasi berbasis web
 	Maka saya berada di Beranda
-	Ketika saya klik mendaftar
-	Dan mendaftar sebagai Pemirsa
+	Ketika saya mengisi form pendaftaran
 	Dan saya mengonfirmasi email
 	Maka saya dapat melihat akun telah dikonfirmasi
 
 Skenario: Mengunjungi aplikasi sebagai pemirsa
 	Dengan saya mengunjungi aplikasi berbasis web
 	Maka saya berada di Beranda
-	Ketika saya klik masuk
-	Dan memasukkan detil sebagai pemirsa
+	Ketika saya mengisi formulir masuk
+	Dan saya berhasil masuk aplikasi
 
 Skenario: Melihat-lihat aplikasi
 	Maka saya dapat melihat Data Keagamaan Katolik

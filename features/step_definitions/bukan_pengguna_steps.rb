@@ -54,12 +54,10 @@ Dan("saya tidak dapat membuat Informasi Pengumuman") do
 end
 
 Maka("saya tidak dapat mengedit Data Pendidikan Agama Katolik") do
-	visit '/data_pendidikan_agama_katolik/1'
-	expect(page).to have_content("Judul: Judul data pendidikan agama katolik ke-0")
+	visit data_keagamaan_katolik_index_path
 	save_and_open_page
 	click_link "Edit"
 	page.find_link('Batal').text
-	click_link "Batal"
 end
 
 Dan("saya tidak dapat mengedit Data Keagamaan Katolik") do
