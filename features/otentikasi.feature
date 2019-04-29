@@ -7,6 +7,18 @@ Fitur: Otentikasi
 	Sebagai pengguna
 	saya dapat melihat beranda, mendaftar, masuk, dan keluar
 
+Skenario: Seed pengguna
+	Dengan pengguna tersedia di database
+
+Skenario: Seed laporan guru agama katolik
+	Dengan laporan guru agama katolik tersedia di database
+
+Skenario: Seed laporan penyuluh agama katolik
+	Dengan laporan penyuluh agama katolik tersedia di database
+
+Skenario: Seed laporan pegawai bimkat sumteng
+	Dengan laporan pegawai bimkat sumteng tersedia di database
+
 Skenario: Seed data keagamaan katolik
 	Dengan data keagamaan katolik tersedia di database
 

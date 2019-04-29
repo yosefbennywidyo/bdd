@@ -53,12 +53,12 @@ Dan("saya tidak dapat membuat Informasi Pengumuman") do
 	expect(page).to have_content("Anda harus mendaftar atau masuk sebelum melanjutkan.")
 end
 
-Maka("saya tidak dapat mengedit Data Pendidikan Agama Katolik") do
+Tapi("saya tidak dapat mengedit Data Keagamaan Katolik") do
 	visit data_pendidikan_agama_katolik_index_path
 	# TODO: check if page have "edit" or not
 end
 
-Dan("saya tidak dapat mengedit Data Keagamaan Katolik") do
+Dan("saya tidak dapat mengedit Data Pendidikan Agama Katolik") do
 	visit data_keagamaan_katolik_index_path
 	# TODO: check if page have "edit" or not
 end
@@ -93,7 +93,7 @@ Dan("saya tidak dapat menghapus Informasi Pengumuman") do
 	# TODO: check if page have "Hapus" or not
 end
 
-Maka("saya tidak dapat melihat Laporan Guru Agama Katolik") do
+Tapi("saya tidak dapat melihat Laporan Guru Agama Katolik") do
 	visit laporan_guru_agama_katolik_index_path
 	expect(page).to have_content("Anda harus mendaftar atau masuk sebelum melanjutkan.")
 end
