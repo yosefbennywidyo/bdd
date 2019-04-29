@@ -5,12 +5,14 @@ class LaporanPegawaiBimkatSumtengController < ApplicationController
   # GET /laporan_pegawai_bimkat_sumteng
   # GET /laporan_pegawai_bimkat_sumteng.json
   def index
-    @laporan_pegawai_bimkat_sumteng = LaporanPegawaiBimkatSumteng.all
+    @laporan_pegawai_bimkat_sumteng = LaporanPegawaiBimkatSumteng.order("created_at DESC").page(params[:data_keagamaan_katolik_page]).per(6)
+    @pengguna = current_pengguna
   end
 
   # GET /laporan_pegawai_bimkat_sumteng/1
   # GET /laporan_pegawai_bimkat_sumteng/1.json
   def show
+    @pengguna = current_pengguna
   end
 
   # GET /laporan_pegawai_bimkat_sumteng/new

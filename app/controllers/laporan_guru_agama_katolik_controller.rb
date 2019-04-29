@@ -5,12 +5,14 @@ class LaporanGuruAgamaKatolikController < ApplicationController
   # GET /laporan_guru_agama_katolik
   # GET /laporan_guru_agama_katolik.json
   def index
-    @laporan_guru_agama_katolik = LaporanGuruAgamaKatolik.all
+    @laporan_guru_agama_katolik = LaporanGuruAgamaKatolik.order("created_at DESC").page(params[:data_keagamaan_katolik_page]).per(6)
+    @pengguna = current_pengguna
   end
 
   # GET /laporan_guru_agama_katolik/1
   # GET /laporan_guru_agama_katolik/1.json
   def show
+    @pengguna = current_pengguna
   end
 
   # GET /laporan_guru_agama_katolik/new

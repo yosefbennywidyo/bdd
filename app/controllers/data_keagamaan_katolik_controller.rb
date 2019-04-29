@@ -5,12 +5,14 @@ class DataKeagamaanKatolikController < ApplicationController
   # GET /data_keagamaan_katolik
   # GET /data_keagamaan_katolik.json
   def index
-    @data_keagamaan_katolik = DataKeagamaanKatolik.all
+    @data_keagamaan_katolik = DataKeagamaanKatolik.order("created_at DESC").page(params[:data_keagamaan_katolik_page]).per(6)
+    @pengguna = current_pengguna
   end
 
   # GET /data_keagamaan_katolik/1
   # GET /data_keagamaan_katolik/1.json
   def show
+    @pengguna = current_pengguna
   end
 
   # GET /data_keagamaan_katolik/new
@@ -70,6 +72,6 @@ class DataKeagamaanKatolikController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def data_keagamaan_katolik_params
-      params.require(:data_keagamaan_katolik).permit(:judul, :keterangan, :pengguna_id)
+      params.require(:data_keagamaan_katolik).permit(:judul, :keterangan, :tautan, :pengguna_id)
     end
 end

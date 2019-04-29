@@ -5,17 +5,20 @@ class DataPendidikanAgamaKatolikController < ApplicationController
   # GET /data_pendidikan_agama_katolik
   # GET /data_pendidikan_agama_katolik.json
   def index
-    @data_pendidikan_agama_katolik = DataPendidikanAgamaKatolik.all
+    @data_pendidikan_agama_katolik = DataPendidikanAgamaKatolik.order("created_at DESC").page(params[:data_keagamaan_katolik_page]).per(6)
+    @pengguna = current_pengguna
   end
 
   # GET /data_pendidikan_agama_katolik/1
   # GET /data_pendidikan_agama_katolik/1.json
   def show
+    @pengguna = current_pengguna
   end
 
   # GET /data_pendidikan_agama_katolik/new
   def new
     @data_pendidikan_agama_katolik = DataPendidikanAgamaKatolik.new
+    @pengguna = current_pengguna
   end
 
   # GET /data_pendidikan_agama_katolik/1/edit
@@ -70,6 +73,6 @@ class DataPendidikanAgamaKatolikController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def data_pendidikan_agama_katolik_params
-      params.require(:data_pendidikan_agama_katolik).permit(:judul, :keterangan, :pengguna_id)
+      params.require(:data_pendidikan_agama_katolik).permit(:judul, :keterangan, :tautan, :pengguna_id)
     end
 end
