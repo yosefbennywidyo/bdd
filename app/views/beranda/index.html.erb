@@ -1,4 +1,4 @@
-<h1 class="mt-4">Daftar Data Keagamaan Katolik</h1>
+<h2 class="mt-4">Daftar Data Keagamaan Katolik</h2>
 
 <div class="row">
 <% @data_keagamaan_katolik.each do |data_keagamaan_katolik| %>
@@ -22,8 +22,14 @@
   </div>
 <% end %>
 </div>
-
-
+<div class="container pagination justify-content-center" >
+  <%= paginate @data_keagamaan_katolik, :class => "pagination-sm" %>
+</div>
+<p style="text-align: center;"><%= page_entries_info @data_keagamaan_katolik, entry_name: 'data keagamaan katolik' %></p>
+</div>
+<br>
+<br>
+<br>
 <h2>Daftar Data Keagamaan Katolik</h2>
 
 <table>

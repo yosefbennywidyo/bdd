@@ -1,6 +1,6 @@
 class BerandaController < ApplicationController
   def index
-  	@data_keagamaan_katolik = DataKeagamaanKatolik.all
+  	@data_keagamaan_katolik = DataKeagamaanKatolik.order("created_at DESC").page params[:page]
   	@data_pendidikan_agama_katolik = DataPendidikanAgamaKatolik.all
   	@informasi_berita_terkini = InformasiBeritaTerkini.all
   	@informasi_pengumuman = InformasiPengumuman.all
