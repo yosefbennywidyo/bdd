@@ -23,9 +23,8 @@
 <% end %>
 </div>
 <div class="container pagination justify-content-center" >
-  <%= paginate @data_keagamaan_katolik, :class => "pagination-sm", :remote => true, :param_name => "data_keagamaan_katolik_page" %>
+
 </div>
-<p style="text-align: center;"><%= page_entries_info @data_keagamaan_katolik, entry_name: 'data keagamaan katolik' %></p>
 </div>
 <h2 class="mt-4">Daftar Data Pendidikan Agama Katolik</h2>
 
@@ -51,10 +50,6 @@
   </div>
 <% end %>
 </div>
-<div class="container pagination justify-content-center" >
-  <%= paginate @data_pendidikan_agama_katolik, :class => "pagination-sm", :remote => true, :param_name => "data_pendidikan_agama_katolik_page" %>
-</div>
-<p style="text-align: center;"><%= page_entries_info @data_pendidikan_agama_katolik, entry_name: 'data pendidikan agama katolik' %></p>
 </div>
 
 <h2>Daftar Informasi Berita Terkini</h2>

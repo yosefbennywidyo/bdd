@@ -17,20 +17,19 @@
         <p class="card-text"><%= truncate(data_keagamaan_katolik.tautan) %></p>
       </div>
         <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-          <%= link_to fa_icon("eye"), data_keagamaan_katolik, :class => "btn btn-success", :title => "Lihat selengkapnya" %>
+          <%= link_to fa_icon("eye"), data_keagamaan_katolik, :class => "btn btn-success", :title => "Lihat #{data_keagamaan_katolik.judul}" %>
         <% if pengguna_signed_in? %>
           <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
-          <%= link_to fa_icon("pencil"), edit_data_keagamaan_katolik_path(data_keagamaan_katolik), :class => "btn btn-warning", :title => "Edit data keagamaan katolik"  %>
-          <%= link_to fa_icon("trash"), data_keagamaan_katolik, method: :delete, data: { confirm: 'Anda yakin?' }, :class => "btn btn-danger", :title => "Hapus data keagamaan katolik"  %>
+          <%= link_to fa_icon("pencil"), edit_data_keagamaan_katolik_path(data_keagamaan_katolik), :class => "btn btn-warning", :title => "Edit #{data_keagamaan_katolik.judul}"  %>
+          <%= link_to fa_icon("trash"), data_keagamaan_katolik_path(data_keagamaan_katolik),  method: :delete, data: { confirm: "Anda yakin mau menghapus #{data_keagamaan_katolik.judul}" }, :class => "btn btn-danger", :title => "Hapus #{data_keagamaan_katolik.judul}"  %>
           <% end %>
         <% end %>
         </div>
     </div>
   </div>
 <% end %>
-</div>
 <div class="container pagination justify-content-center" >
-  <%= paginate @data_keagamaan_katolik, :class => "pagination-sm", :remote => true, :param_name => "data_keagamaan_katolik_page" %>
+
 </div>
-<p style="text-align: center;"><%= page_entries_info @data_keagamaan_katolik, entry_name: 'data keagamaan katolik' %></p>
 </div>
+<br>

@@ -5,7 +5,7 @@ class InformasiBeritaTerkiniController < ApplicationController
   # GET /informasi_berita_terkini
   # GET /informasi_berita_terkini.json
   def index
-    @informasi_berita_terkini = InformasiBeritaTerkini.order("created_at DESC").page(params[:data_keagamaan_katolik_page]).per(6)
+    @informasi_berita_terkini = InformasiBeritaTerkini.all.order("created_at DESC")
     @pengguna = current_pengguna
   end
 
