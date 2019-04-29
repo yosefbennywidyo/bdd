@@ -19,6 +19,9 @@
   <strong>Pengguna:</strong>
   <%= @informasi_berita_terkini.pengguna %>
 </p>
-
+<% if pengguna_signed_in? %>
+	<% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
 <%= link_to 'Edit', edit_informasi_berita_terkini_path(@informasi_berita_terkini) %> |
+	<% end %>
+<% end %>
 <%= link_to 'Batal', informasi_berita_terkini_index_path %>

@@ -19,8 +19,12 @@
         <td><%= informasi_berita_terkini.tautan %></td>
         <td><%= informasi_berita_terkini.pengguna %></td>
         <td><%= link_to 'Tampilkan', informasi_berita_terkini %></td>
+      <% if pengguna_signed_in? %>
+        <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
         <td><%= link_to 'Edit', edit_informasi_berita_terkini_path(informasi_berita_terkini) %></td>
         <td><%= link_to 'Hapus', informasi_berita_terkini, method: :delete, data: { confirm: 'Anda yakin mau menghapusnya?' } %></td>
+        <% end %>
+      <% end %>
       </tr>
     <% end %>
   </tbody>
