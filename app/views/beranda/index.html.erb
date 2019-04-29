@@ -1,5 +1,9 @@
-<h2 class="mt-4">Daftar Data Keagamaan Katolik</h2>
-
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-11"><h2>Daftar Data Keagamaan Katolik</h2></div>
+    <div class="col-sm-1"><%= link_to fa_icon("arrow-right"), data_keagamaan_katolik_index_path, :class => "btn btn-primary", :title => "Lihat daftar data keagamaan katolik selengkapnya"  %></div>
+  </div>
+</div>
 <div class="row">
 <% @data_keagamaan_katolik.each do |data_keagamaan_katolik| %>
   <div class="col-sm-4 p-2">
@@ -10,11 +14,11 @@
         <p class="card-text"><%= truncate(data_keagamaan_katolik.tautan) %></p>
       </div>
         <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-          <%= link_to fa_icon("eye"), data_keagamaan_katolik, :class => "btn btn-success", :title => "Lihat selengkapnya" %>
+          <%= link_to fa_icon("eye"), data_keagamaan_katolik, :class => "btn btn-success", :title => "Lihat #{data_keagamaan_katolik.judul}" %>
         <% if pengguna_signed_in? %>
           <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
-          <%= link_to fa_icon("pencil"), edit_data_keagamaan_katolik_path(data_keagamaan_katolik), :class => "btn btn-warning", :title => "Edit data keagamaan katolik"  %>
-          <%= link_to fa_icon("trash"), data_keagamaan_katolik, method: :delete, data: { confirm: 'Anda yakin?' }, :class => "btn btn-danger", :title => "Hapus data keagamaan katolik"  %>
+          <%= link_to fa_icon("pencil"), edit_data_keagamaan_katolik_path(data_keagamaan_katolik), :class => "btn btn-warning", :title => "Edit #{data_keagamaan_katolik.judul}"  %>
+          <%= link_to fa_icon("trash"), data_keagamaan_katolik, method: :delete, data: { confirm: "Anda yakin akan menghapus #{data_keagamaan_katolik.judul}?" }, :class => "btn btn-danger", :title => "Hapus #{data_keagamaan_katolik.judul}"  %>
           <% end %>
         <% end %>
         </div>
@@ -22,12 +26,15 @@
   </div>
 <% end %>
 </div>
-<div class="container pagination justify-content-center" >
 
-</div>
-</div>
-<h2 class="mt-4">Daftar Data Pendidikan Agama Katolik</h2>
 
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-11"><h2>Daftar Data Pendidikan Agama Katolik</h2></div>
+    <div class="col-sm-1"><%= link_to fa_icon("arrow-right"), data_pendidikan_agama_katolik_index_path, :class => "btn btn-primary", :title => "Lihat daftar data pendidikan agama katolik selengkapnya"  %></div>
+  </div>
+</div>
 <div class="row">
 <% @data_pendidikan_agama_katolik.each do |data_pendidikan_agama_katolik| %>
   <div class="col-sm-4 p-2">
@@ -38,11 +45,11 @@
         <p class="card-text"><%= truncate(data_pendidikan_agama_katolik.tautan) %></p>
       </div>
         <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-          <%= link_to fa_icon("eye"), data_pendidikan_agama_katolik, :class => "btn btn-success", :title => "Lihat selengkapnya" %>
+          <%= link_to fa_icon("eye"), data_pendidikan_agama_katolik, :class => "btn btn-success", :title => "Lihat #{data_pendidikan_agama_katolik.judul}" %>
         <% if pengguna_signed_in? %>
           <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
-          <%= link_to fa_icon("pencil"), edit_data_pendidikan_agama_katolik_path(data_pendidikan_agama_katolik), :class => "btn btn-warning", :title => "Edit data pendidikan agama katolik"  %>
-          <%= link_to fa_icon("trash"), data_pendidikan_agama_katolik, method: :delete, data: { confirm: 'Anda yakin?' }, :class => "btn btn-danger", :title => "Hapus data pendidikan agama katolik"  %>
+          <%= link_to fa_icon("pencil"), edit_data_pendidikan_agama_katolik_path(data_pendidikan_agama_katolik), :class => "btn btn-warning", :title => "Edit #{data_pendidikan_agama_katolik.judul}"  %>
+          <%= link_to fa_icon("trash"), data_pendidikan_agama_katolik, method: :delete, data: { confirm: "Anda yakin akan menghapus #{data_pendidikan_agama_katolik.judul}?" }, :class => "btn btn-danger", :title => "Hapus #{data_pendidikan_agama_katolik.judul}"  %>
           <% end %>
         <% end %>
         </div>
@@ -50,69 +57,66 @@
   </div>
 <% end %>
 </div>
+
+
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-11"><h2>Daftar Informasi Berita Terkini</h2></div>
+    <div class="col-sm-1"><%= link_to fa_icon("arrow-right"), informasi_berita_terkini_index_path, :class => "btn btn-primary", :title => "Lihat daftar informasi berita terkini selengkapnya"  %></div>
+  </div>
+</div>
+<div class="row">
+<% @informasi_berita_terkini.each do |informasi_berita_terkini| %>
+  <div class="col-sm-4 p-2">
+    <div class="card bg-primary">
+      <h5 class="card-header text-white"><%= informasi_berita_terkini.judul %></h5>
+      <div class="card-body bg-light">
+        <p class="card-text"><%= truncate(informasi_berita_terkini.keterangan) %></p>
+        <p class="card-text"><%= truncate(informasi_berita_terkini.tautan) %></p>
+      </div>
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+          <%= link_to fa_icon("eye"), informasi_berita_terkini, :class => "btn btn-success", :title => "Lihat #{informasi_berita_terkini.judul}" %>
+        <% if pengguna_signed_in? %>
+          <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
+          <%= link_to fa_icon("pencil"), edit_informasi_berita_terkini_path(informasi_berita_terkini), :class => "btn btn-warning", :title => "Edit #{informasi_berita_terkini.judul}"  %>
+          <%= link_to fa_icon("trash"), informasi_berita_terkini, method: :delete, data: { confirm: "Anda yakin akan menghapus #{informasi_berita_terkini.judul}?" }, :class => "btn btn-danger", :title => "Hapus #{informasi_berita_terkini.judul}"  %>
+          <% end %>
+        <% end %>
+        </div>
+    </div>
+  </div>
+<% end %>
 </div>
 
-<h2>Daftar Informasi Berita Terkini</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Judul</th>
-      <th>Keterangan</th>
-      <th>Tautan</th>
-      <th>Pengguna</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @informasi_berita_terkini.each do |informasi_berita_terkini| %>
-      <tr>
-        <td><%= informasi_berita_terkini.judul %></td>
-        <td><%= informasi_berita_terkini.keterangan %></td>
-        <td><%= informasi_berita_terkini.tautan %></td>
-        <td><%= informasi_berita_terkini.pengguna %></td>
-        <td><%= link_to 'Tampilkan', informasi_berita_terkini %></td>
-      <% if pengguna_signed_in? %>
-        <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
-        <td><%= link_to 'Edit', edit_informasi_berita_terkini_path(informasi_berita_terkini) %></td>
-        <td><%= link_to 'Hapus', informasi_berita_terkini, method: :delete, data: { confirm: 'Anda yakin mau menghapusnya?' } %></td>
-        <% end %>
-      <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-11"><h2>Daftar Informasi Pengumuman</h2></div>
+    <div class="col-sm-1"><%= link_to fa_icon("arrow-right"), informasi_pengumuman_index_path, :class => "btn btn-primary", :title => "Lihat daftar informasi pengumuman selengkapnya"  %></div>
+  </div>
+</div>
 <br>
-<h2>Daftar Informasi Pengumuman</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Judul</th>
-      <th>Keterangan</th>
-      <th>Tautan</th>
-      <th>Pengguna</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @informasi_pengumuman.each do |informasi_pengumuman| %>
-      <tr>
-        <td><%= informasi_pengumuman.judul %></td>
-        <td><%= informasi_pengumuman.keterangan %></td>
-        <td><%= informasi_pengumuman.tautan %></td>
-        <td><%= informasi_pengumuman.pengguna %></td>
-        <td><%= link_to 'Tampilkan', informasi_pengumuman %></td>
-      <% if pengguna_signed_in? %>
-        <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
-        <td><%= link_to 'Edit', edit_informasi_pengumuman_path(informasi_pengumuman) %></td>
-        <td><%= link_to 'Hapus', informasi_pengumuman, method: :delete, data: { confirm: 'Anda yakin mau menghapusnya?' } %></td>
+<div class="row">
+<% @informasi_pengumuman.each do |informasi_pengumuman| %>
+  <div class="col-sm-4 p-2">
+    <div class="card bg-primary">
+      <h5 class="card-header text-white"><%= informasi_pengumuman.judul %></h5>
+      <div class="card-body bg-light">
+        <p class="card-text"><%= truncate(informasi_pengumuman.keterangan) %></p>
+        <p class="card-text"><%= truncate(informasi_pengumuman.tautan) %></p>
+      </div>
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+          <%= link_to fa_icon("eye"), informasi_pengumuman, :class => "btn btn-success", :title => "Lihat #{informasi_pengumuman.judul}" %>
+        <% if pengguna_signed_in? %>
+          <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
+          <%= link_to fa_icon("pencil"), edit_informasi_pengumuman_path(informasi_pengumuman), :class => "btn btn-warning", :title => "Edit #{informasi_pengumuman.judul}"  %>
+          <%= link_to fa_icon("trash"), informasi_pengumuman, method: :delete, data: { confirm: "Anda yakin akan menghapus #{informasi_pengumuman.judul}?" }, :class => "btn btn-danger", :title => "Hapus #{informasi_pengumuman.judul}"  %>
+          <% end %>
         <% end %>
-      <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </div>
+    </div>
+  </div>
+<% end %>
+</div>
