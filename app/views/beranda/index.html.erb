@@ -23,75 +23,40 @@
 <% end %>
 </div>
 <div class="container pagination justify-content-center" >
-  <%= paginate @data_keagamaan_katolik, :class => "pagination-sm" %>
+  <%= paginate @data_keagamaan_katolik, :class => "pagination-sm", :remote => true, :param_name => "data_keagamaan_katolik_page" %>
 </div>
 <p style="text-align: center;"><%= page_entries_info @data_keagamaan_katolik, entry_name: 'data keagamaan katolik' %></p>
 </div>
-<br>
-<br>
-<br>
-<h2>Daftar Data Keagamaan Katolik</h2>
+<h2 class="mt-4">Daftar Data Pendidikan Agama Katolik</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Judul</th>
-      <th>Keterangan</th>
-      <th>Tautan</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @data_keagamaan_katolik.each do |data_keagamaan_katolik| %>
-      <tr>
-        <td><%= data_keagamaan_katolik.judul %></td>
-        <td><%= data_keagamaan_katolik.keterangan %></td>
-        <td><%= data_keagamaan_katolik.tautan %></td>
-        <td><%= link_to 'Tampilkan', data_keagamaan_katolik %></td>
-      <% if pengguna_signed_in? %>
-        <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
-        <td><%= link_to 'Edit', edit_data_keagamaan_katolik_path(data_keagamaan_katolik) %></td>
-        <td><%= link_to 'Hapus', data_keagamaan_katolik, method: :delete, data: { confirm: 'Anda yakin mau menghapusnya?' } %></td>
+<div class="row">
+<% @data_pendidikan_agama_katolik.each do |data_pendidikan_agama_katolik| %>
+  <div class="col-sm-4 p-2">
+    <div class="card bg-primary">
+      <h5 class="card-header text-white"><%= data_pendidikan_agama_katolik.judul %></h5>
+      <div class="card-body bg-light">
+        <p class="card-text"><%= truncate(data_pendidikan_agama_katolik.keterangan) %></p>
+        <p class="card-text"><%= truncate(data_pendidikan_agama_katolik.tautan) %></p>
+      </div>
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+          <%= link_to fa_icon("eye"), data_pendidikan_agama_katolik, :class => "btn btn-success", :title => "Lihat selengkapnya" %>
+        <% if pengguna_signed_in? %>
+          <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
+          <%= link_to fa_icon("pencil"), edit_data_pendidikan_agama_katolik_path(data_pendidikan_agama_katolik), :class => "btn btn-warning", :title => "Edit data pendidikan agama katolik"  %>
+          <%= link_to fa_icon("trash"), data_pendidikan_agama_katolik, method: :delete, data: { confirm: 'Anda yakin?' }, :class => "btn btn-danger", :title => "Hapus data pendidikan agama katolik"  %>
+          <% end %>
         <% end %>
-      <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </div>
+    </div>
+  </div>
+<% end %>
+</div>
+<div class="container pagination justify-content-center" >
+  <%= paginate @data_pendidikan_agama_katolik, :class => "pagination-sm", :remote => true, :param_name => "data_pendidikan_agama_katolik_page" %>
+</div>
+<p style="text-align: center;"><%= page_entries_info @data_pendidikan_agama_katolik, entry_name: 'data pendidikan agama katolik' %></p>
+</div>
 
-<br>
-<h2>Daftar Data Pendidikan Agama Katolik</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Judul</th>
-      <th>Keterangan</th>
-      <th>Tautan</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @data_pendidikan_agama_katolik.each do |data_pendidikan_agama_katolik| %>
-      <tr>
-        <td><%= data_pendidikan_agama_katolik.judul %></td>
-        <td><%= data_pendidikan_agama_katolik.keterangan %></td>
-        <td><%= data_pendidikan_agama_katolik.tautan %></td>
-        <td><%= link_to 'Tampilkan', data_pendidikan_agama_katolik %></td>
-      <% if pengguna_signed_in? %>
-        <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
-        <td><%= link_to 'Edit', edit_data_pendidikan_agama_katolik_path(data_pendidikan_agama_katolik) %></td>
-        <td><%= link_to 'Hapus', data_pendidikan_agama_katolik, method: :delete, data: { confirm: 'Anda yakin mau menghapusnya?' } %></td>
-        <% end %>
-      <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 <h2>Daftar Informasi Berita Terkini</h2>
 
 <table>
