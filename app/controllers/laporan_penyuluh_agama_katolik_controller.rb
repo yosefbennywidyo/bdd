@@ -1,4 +1,5 @@
 class LaporanPenyuluhAgamaKatolikController < ApplicationController
+  before_action :authenticate_pengguna!
   before_action :set_laporan_penyuluh_agama_katolik, only: [:show, :edit, :update, :destroy]
 
   # GET /laporan_penyuluh_agama_katolik
