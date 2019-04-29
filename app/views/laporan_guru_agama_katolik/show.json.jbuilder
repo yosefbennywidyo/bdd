@@ -1,0 +1,1 @@
+json.partial! "laporan_guru_agama_katolik/laporan_guru_agama_katolik", laporan_guru_agama_katolik: @laporan_guru_agama_katolik

@@ -1,0 +1,2 @@
+module LaporanGuruAgamaKatolikHelper
+end

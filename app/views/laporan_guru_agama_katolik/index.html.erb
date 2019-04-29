@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Laporan Guru Agama Katolik</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Judul</th>
+      <th>Tautan</th>
+      <th>Pengguna</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @laporan_guru_agama_katolik.each do |laporan_guru_agama_katolik| %>
+      <tr>
+        <td><%= laporan_guru_agama_katolik.judul %></td>
+        <td><%= laporan_guru_agama_katolik.tautan %></td>
+        <td><%= laporan_guru_agama_katolik.pengguna %></td>
+        <td><%= link_to 'Show', laporan_guru_agama_katolik %></td>
+        <td><%= link_to 'Edit', edit_laporan_guru_agama_katolik_path(laporan_guru_agama_katolik) %></td>
+        <td><%= link_to 'Destroy', laporan_guru_agama_katolik, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Laporan Guru Agama Katolik', new_laporan_guru_agama_katolik_path %>
