@@ -19,8 +19,12 @@
         <td><%= informasi_pengumuman.tautan %></td>
         <td><%= informasi_pengumuman.pengguna %></td>
         <td><%= link_to 'Tampilkan', informasi_pengumuman %></td>
+      <% if pengguna_signed_in? %>
+        <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
         <td><%= link_to 'Edit', edit_informasi_pengumuman_path(informasi_pengumuman) %></td>
         <td><%= link_to 'Hapus', informasi_pengumuman, method: :delete, data: { confirm: 'Anda yakin mau menghapusnya?' } %></td>
+        <% end %>
+      <% end %>
       </tr>
     <% end %>
   </tbody>

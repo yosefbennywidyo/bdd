@@ -15,8 +15,12 @@
         <td><%= laporan_pegawai_bimkat_sumteng.judul %></td>
         <td><%= laporan_pegawai_bimkat_sumteng.tautan %></td>
         <td><%= link_to 'Tampilkan', laporan_pegawai_bimkat_sumteng %></td>
+      <% if pengguna_signed_in? %>
+        <% if @pengguna.guru_pendakat? || @pengguna.administrator? %>
         <td><%= link_to 'Edit', edit_laporan_pegawai_bimkat_sumteng_path(laporan_pegawai_bimkat_sumteng) %></td>
         <td><%= link_to 'Hapus', laporan_pegawai_bimkat_sumteng, method: :delete, data: { confirm: 'Anda yakin ingin menghapusnya?' } %></td>
+        <% end %>
+      <% end %>
       </tr>
     <% end %>
   </tbody>

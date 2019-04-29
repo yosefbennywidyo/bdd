@@ -7,6 +7,9 @@
   <strong>Tautan:</strong>
   <%= @laporan_guru_agama_katolik.tautan %>
 </p>
-
+<% if pengguna_signed_in? %>
+	<% if @pengguna.guru_pendakat? || @pengguna.administrator? %>
 <%= link_to 'Edit', edit_laporan_guru_agama_katolik_path(@laporan_guru_agama_katolik) %> |
+	<% end %>
+<% end %>
 <%= link_to 'Batal', laporan_guru_agama_katolik_index_path %>

@@ -15,8 +15,12 @@
         <td><%= laporan_penyuluh_agama_katolik.judul %></td>
         <td><%= laporan_penyuluh_agama_katolik.tautan %></td>
         <td><%= link_to 'Tampilkan', laporan_penyuluh_agama_katolik %></td>
+      <% if pengguna_signed_in? %>
+        <% if @pengguna.guru_pendakat? || @pengguna.administrator? %>
         <td><%= link_to 'Edit', edit_laporan_penyuluh_agama_katolik_path(laporan_penyuluh_agama_katolik) %></td>
         <td><%= link_to 'Hapus', laporan_penyuluh_agama_katolik, method: :delete, data: { confirm: 'Anda yakin ingin menghapusnya?' } %></td>
+        <% end %>
+      <% end %>
       </tr>
     <% end %>
   </tbody>

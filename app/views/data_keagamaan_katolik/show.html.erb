@@ -14,6 +14,9 @@
   <strong>Pengguna:</strong>
   <%= @data_keagamaan_katolik.pengguna %>
 </p>
-
+<% if pengguna_signed_in? %>
+	<% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
 <%= link_to 'Edit', edit_data_keagamaan_katolik_path(@data_keagamaan_katolik) %> |
+	<% end %>
+<% end %>
 <%= link_to 'Batal', data_keagamaan_katolik_index_path %>
