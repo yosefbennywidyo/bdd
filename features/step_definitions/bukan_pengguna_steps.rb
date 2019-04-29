@@ -95,15 +95,15 @@ end
 
 Maka("saya tidak dapat melihat Laporan Guru Agama Katolik") do
 	visit laporan_guru_agama_katolik_index_path
-	expect(page).to have_content("Maaf, Anda tidak berhak melihatnya.")
+	expect(page).to have_content("Anda harus mendaftar atau masuk sebelum melanjutkan.")
 end
 
 Dan("saya tidak dapat melihat Laporan Penyuluh Agama Katolik") do
 	visit laporan_guru_agama_katolik_index_path
-	expect(page).to have_content("Maaf, Anda tidak berhak melihatnya.")
+	expect(page).to have_content("Anda harus mendaftar atau masuk sebelum melanjutkan.")
 end
 
 Dan("saya tidak dapat melihat Laporan Pegawai Bimkat Sumteng") do
 	visit laporan_guru_agama_katolik_index_path
-	expect(page).to have_content("Maaf, Anda tidak berhak melihatnya.")
+	expect(page).to have_content("Anda harus mendaftar atau masuk sebelum melanjutkan.")
 end

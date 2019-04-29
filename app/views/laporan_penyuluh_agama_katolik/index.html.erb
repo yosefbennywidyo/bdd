@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Laporan Penyuluh Agama Katolik</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Judul</th>
+      <th>Tautan</th>
+      <th>Pengguna</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @laporan_penyuluh_agama_katolik.each do |laporan_penyuluh_agama_katolik| %>
+      <tr>
+        <td><%= laporan_penyuluh_agama_katolik.judul %></td>
+        <td><%= laporan_penyuluh_agama_katolik.tautan %></td>
+        <td><%= laporan_penyuluh_agama_katolik.pengguna %></td>
+        <td><%= link_to 'Show', laporan_penyuluh_agama_katolik %></td>
+        <td><%= link_to 'Edit', edit_laporan_penyuluh_agama_katolik_path(laporan_penyuluh_agama_katolik) %></td>
+        <td><%= link_to 'Destroy', laporan_penyuluh_agama_katolik, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Laporan Penyuluh Agama Katolik', new_laporan_penyuluh_agama_katolik_path %>
