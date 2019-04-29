@@ -1,9 +1,9 @@
 class BerandaController < ApplicationController  
   def index
-  	@data_keagamaan_katolik = DataKeagamaanKatolik.all.order("created_at DESC")
-    @data_pendidikan_agama_katolik = DataPendidikanAgamaKatolik.all.order("created_at DESC")
-  	@informasi_berita_terkini = InformasiBeritaTerkini.all.order("created_at DESC")
-  	@informasi_pengumuman = InformasiPengumuman.all.order("created_at DESC")
+  	@data_keagamaan_katolik = DataKeagamaanKatolik.all.order("created_at DESC").limit(3)
+    @data_pendidikan_agama_katolik = DataPendidikanAgamaKatolik.all.order("created_at DESC").limit(3)
+  	@informasi_berita_terkini = InformasiBeritaTerkini.all.order("created_at DESC").limit(3)
+  	@informasi_pengumuman = InformasiPengumuman.all.order("created_at DESC").limit(3)
     @pengguna = current_pengguna
   end
 
