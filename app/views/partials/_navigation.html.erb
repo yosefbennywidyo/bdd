@@ -1,7 +1,67 @@
-<% if current_pengguna %>
-<%= link_to 'Edit Akun', edit_pengguna_registration_path %>
-<%= link_to 'Keluar', destroy_pengguna_session_path %>
-<% else %>
-<%= link_to 'Masuk', new_pengguna_session_path %>
-<%= link_to 'Mendaftar', new_pengguna_registration_path %>
-<% end %>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+  <%= link_to 'Bimkat Sumteng', root_path, class: 'navbar-brand' %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="navbar-collapse collapse w-100" id="navbarSupportedContent">
+    <ul class="navbar-nav w-100 justify-content-center">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Tentang
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Data
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Data Keagamaan Katolik", data_keagamaan_katolik_index_path, class: "dropdown-item" %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Data Pendidikan Agama Katolik", data_pendidikan_agama_katolik_index_path, class: "dropdown-item" %>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Galeri
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Informasi
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Berita Terkini", informasi_berita_terkini_index_path, class: "dropdown-item" %>
+          <%= link_to "Pengumuman", informasi_pengumuman_index_path, class: "dropdown-item" %>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Laporan
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Penyuluh Agama Katolik", laporan_penyuluh_agama_katolik_index_path, class: "dropdown-item" %>
+          <%= link_to "Guru Agama Katolik", laporan_guru_agama_katolik_index_path, class: "dropdown-item" %>
+          <%= link_to "Kinerja Pegawai Bimkat Sumteng", laporan_pegawai_bimkat_sumteng_index_path, class: "dropdown-item" %>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Akun
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <% if current_pengguna %>
+          <%= link_to 'Edit Akun', edit_pengguna_registration_path, class: "dropdown-item" %>
+          <%= link_to 'Keluar', destroy_pengguna_session_path, method: :delete, class: "dropdown-item"  %>
+        <% else %>
+          <%= link_to 'Masuk', new_pengguna_session_path, class: "dropdown-item" %>
+          <%= link_to 'Daftar', new_pengguna_registration_path, class: "dropdown-item" %>
+        <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

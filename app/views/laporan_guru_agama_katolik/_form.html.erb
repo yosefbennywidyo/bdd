@@ -1,7 +1,7 @@
-<%= bootstrap_form_for(model: laporan_guru_agama_katolik, local: true) do |form| %>
+<%= bootstrap_form_for(@laporan_guru_agama_katolik) do |f| %>
   <% if laporan_guru_agama_katolik.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(laporan_guru_agama_katolik.errors.count, "error") %> prohibited this laporan_guru_agama_katolik from being saved:</h2>
+      <h2><%= pluralize(laporan_guru_agama_katolik.errors.count, "error") %> mengakibatkan Laporan Guru Agama Katolik tidak dapat disimpan:</h2>
 
       <ul>
       <% laporan_guru_agama_katolik.errors.full_messages.each do |message| %>

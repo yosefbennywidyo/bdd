@@ -1,4 +1,29 @@
-<h1>Selamat datang di Aplikasi Web Bimas Katolik Sumba Tengah</h1>
+<h1 class="mt-4">Daftar Data Keagamaan Katolik</h1>
+
+<div class="row">
+<% @data_keagamaan_katolik.each do |data_keagamaan_katolik| %>
+  <div class="col-sm-4 p-2">
+    <div class="card bg-primary">
+      <h5 class="card-header text-white"><%= data_keagamaan_katolik.judul %></h5>
+      <div class="card-body bg-light">
+        <p class="card-text"><%= truncate(data_keagamaan_katolik.keterangan) %></p>
+        <p class="card-text"><%= truncate(data_keagamaan_katolik.tautan) %></p>
+      </div>
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+          <%= link_to fa_icon("eye"), data_keagamaan_katolik, :class => "btn btn-success", :title => "Lihat selengkapnya" %>
+        <% if pengguna_signed_in? %>
+          <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
+          <%= link_to fa_icon("pencil"), edit_data_keagamaan_katolik_path(data_keagamaan_katolik), :class => "btn btn-warning", :title => "Edit data keagamaan katolik"  %>
+          <%= link_to fa_icon("trash"), data_keagamaan_katolik, method: :delete, data: { confirm: 'Anda yakin?' }, :class => "btn btn-danger", :title => "Hapus data keagamaan katolik"  %>
+          <% end %>
+        <% end %>
+        </div>
+    </div>
+  </div>
+<% end %>
+</div>
+
+
 <h2>Daftar Data Keagamaan Katolik</h2>
 
 <table>
