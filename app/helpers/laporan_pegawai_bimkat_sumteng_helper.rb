@@ -1,0 +1,2 @@
+module LaporanPegawaiBimkatSumtengHelper
+end

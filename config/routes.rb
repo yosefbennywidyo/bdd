@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :laporan_pegawai_bimkat_sumteng
   resources :laporan_penyuluh_agama_katolik
   resources :laporan_guru_agama_katolik
   resources :informasi_pengumuman
