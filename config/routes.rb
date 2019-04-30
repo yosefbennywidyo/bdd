@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :data_pendidikan_agama_katolik
   resources :data_keagamaan_katolik
 
+  match "*path", to: "beranda#catch_404", via: :all
+
   devise_for :pengguna
 
 	root to: "beranda#index"

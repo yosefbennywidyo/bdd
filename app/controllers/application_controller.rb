@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
 		devise_parameter_sanitizer.permit(:account_update, keys: [:nama_lengkap, :email, :password, :password_confirmation, :current_password])
 	end
 
+	# Reditect to a default route when user inputs a wrong one
+	rescue_from ActionController::RoutingError do |exception|
+		logger.error 'Terjadi kesalahan Routing'
+		redirect_to root_path
+	end
+
 	# Overwriting the sign_out redirect path method
 	def sign_out_and_redirect(pengguna)
 		root_path
