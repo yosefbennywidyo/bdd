@@ -1,16 +1,26 @@
-<p>
-  <strong>Judul:</strong>
-  <%= @laporan_penyuluh_agama_katolik.judul %>
-</p>
-
-<p>
-  <strong>Tautan:</strong>
-  <%= @laporan_penyuluh_agama_katolik.tautan %>
-</p>
-
-<% if current_pengguna %>
-	<% if current_pengguna.guru_pendakat? %>
-<%= link_to 'Edit', edit_laporan_penyuluh_agama_katolik_path(@laporan_penyuluh_agama_katolik) %>
-	<% end %>
-<% end %>
-<%= link_to 'Batal', laporan_penyuluh_agama_katolik_index_path %>
+<div class="row">
+  <div class="col-12 col-md-12">
+    <div class="card border-success">
+      <iframe class="card-img-top" src="https://drive.google.com/file/d/<%= @laporan_penyuluh_agama_katolik.tautan %>/preview" style="height:23rem;" frameborder="0"></iframe>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-10">
+            <h2 class="card-title"><%= @laporan_penyuluh_agama_katolik.judul %></h2>
+          </div>
+          <div class="col-md-2">
+            <div class="btn-group btn-group-lg float-right" role="group" aria-label="tampilkan-kembali">
+            <%= link_to edit_laporan_penyuluh_agama_katolik_path(@laporan_penyuluh_agama_katolik), :class => "btn btn-warning" do %>
+              <i class="fa fa-pencil"></i>
+                Edit
+              <% end %>
+            <%= link_to laporan_penyuluh_agama_katolik_index_path, :class => "btn btn-secondary"  do %>
+              <i class="fa fa-arrow-left"></i>
+                Batal
+              <% end %>
+            </div>
+          </div>
+        </div> 
+      </div>  
+    </div>
+  </div>
+</div>

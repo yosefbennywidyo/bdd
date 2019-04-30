@@ -2,15 +2,15 @@
   <div class="row">
     <div class="col-md-10"><h2>Daftar Laporan Penyuluh Agama Katolik</h2></div>
     <div class="col-sm-2">
-      <%= link_to fa_icon("arrow-left"), beranda_index_path, :class => "btn btn-primary", :title => "Kembali ke Beranda"  %>
-      <%= link_to fa_icon("plus-square"), new_laporan_penyuluh_agama_katolik_path, :class => "btn btn-primary", :title => "Membuat laporan penyuluh agama katolik"  %>
+      <%= link_to fa_icon("arrow-left"), beranda_index_path, :class => "btn btn-secondary", :title => "Kembali ke Beranda"  %>
+      <%= link_to fa_icon("plus-square"), new_laporan_penyuluh_agama_katolik_path, :class => "btn btn-success", :title => "Membuat laporan penyuluh agama katolik"  %>
       </div>
   </div>
 </div>
 <div class="row">
 <% @laporan_penyuluh_agama_katolik.each do |laporan_penyuluh_agama_katolik| %>
   <div class="col-sm-4 p-2">
-    <div class="card border-primary">
+    <div class="card border-success">
       <div class="card-body">
       <p class="card-title"><strong><%= laporan_penyuluh_agama_katolik.judul %></strong></p>
       <small><i>Pembuat: <%= laporan_penyuluh_agama_katolik.pengguna.nama_lengkap %></i></small>

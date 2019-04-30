@@ -2,15 +2,15 @@
   <div class="row">
     <div class="col-md-10"><h2>Daftar Laporan Pegawai Bimkat Sumteng</h2></div>
     <div class="col-sm-2">
-      <%= link_to fa_icon("arrow-left"), beranda_index_path, :class => "btn btn-primary", :title => "Kembali ke Beranda"  %>
-      <%= link_to fa_icon("plus-square"), new_laporan_pegawai_bimkat_sumteng_path, :class => "btn btn-primary", :title => "Membuat laporan pegawai bimkat sumteng"  %>
+      <%= link_to fa_icon("arrow-left"), beranda_index_path, :class => "btn btn-secondary", :title => "Kembali ke Beranda"  %>
+      <%= link_to fa_icon("plus-square"), new_laporan_pegawai_bimkat_sumteng_path, :class => "btn btn-success", :title => "Membuat laporan pegawai bimkat sumteng"  %>
       </div>
   </div>
 </div>
 <div class="row">
 <% @laporan_pegawai_bimkat_sumteng.each do |laporan_pegawai_bimkat_sumteng| %>
   <div class="col-sm-4 p-2">
-    <div class="card border-primary">
+    <div class="card border-danger">
       <div class="card-body">
       <p class="card-title"><strong><%= laporan_pegawai_bimkat_sumteng.judul %></strong></p>
       <small><i>Pembuat: <%= laporan_pegawai_bimkat_sumteng.pengguna.nama_lengkap %></i></small>

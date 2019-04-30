@@ -2,21 +2,23 @@
   <div class="row">
     <div class="col-md-10"><h2>Daftar Informasi Berita Terkini</h2></div>
     <div class="col-sm-2">
-      <%= link_to fa_icon("arrow-left"), beranda_index_path, :class => "btn btn-primary", :title => "Kembali ke Beranda"  %>
-      <%= link_to fa_icon("plus-square"), new_informasi_berita_terkini_path, :class => "btn btn-primary", :title => "Membuat informasi berita terkini"  %>
+      <%= link_to fa_icon("arrow-left"), beranda_index_path, :class => "btn btn-secondary", :title => "Kembali ke Beranda"  %>
+      <%= link_to fa_icon("plus-square"), new_informasi_berita_terkini_path, :class => "btn btn-success", :title => "Membuat informasi berita terkini"  %>
       </div>
   </div>
 </div>
 <div class="row">
 <% @informasi_berita_terkini.each do |informasi_berita_terkini| %>
   <div class="col-sm-4 p-2">
-    <div class="card bg-primary">
-      <h5 class="card-header text-white"><%= informasi_berita_terkini.judul %></h5>
-      <div class="card-body bg-light">
-        <p class="card-text"><%= truncate(informasi_berita_terkini.keterangan) %></p>
-        <p class="card-text"><%= truncate(informasi_berita_terkini.tautan) %></p>
+    <div class="card border-info">
+      <div class="card-body">
+      <p class="card-title"><strong><%= informasi_berita_terkini.judul %></strong></p>
+      <small><i>Pembuat: <%= informasi_berita_terkini.pengguna.nama_lengkap %></i></small>
+      <div class="card-text">
+        <p><%= truncate(informasi_berita_terkini.keterangan) %></p>
+        <p><%= truncate(informasi_berita_terkini.tautan) %></p>
       </div>
-        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+        <div class="btn-group btn-group-lg float-right" role="group" aria-label="Basic example">
           <%= link_to fa_icon("eye"), informasi_berita_terkini, :class => "btn btn-success", :title => "Lihat #{informasi_berita_terkini.judul}" %>
         <% if pengguna_signed_in? %>
           <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.administrator? %>
@@ -25,6 +27,7 @@
           <% end %>
         <% end %>
         </div>
+      </div>
     </div>
   </div>
 <% end %>

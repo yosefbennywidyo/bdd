@@ -1,19 +1,24 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-md-11"><h2>Data Keagamaan Katolik</h2></div>
-    <div class="col-sm-1"><%= link_to fa_icon("arrow-right"), data_keagamaan_katolik_index_path, :class => "btn btn-primary", :title => "Lihat daftar data keagamaan katolik selengkapnya"  %></div>
+    <div class="col-sm-1"><%= link_to data_keagamaan_katolik_index_path, :class => "btn btn-primary", :title => "Lihat daftar data keagamaan katolik selengkapnya" do %>
+      <i class='fa fa-arrow-right fa-beat'></i>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="row">
 <% @data_keagamaan_katolik.each do |data_keagamaan_katolik| %>
   <div class="col-sm-4 p-2">
-    <div class="card bg-primary">
-      <h5 class="card-header text-white"><%= data_keagamaan_katolik.judul %></h5>
-      <div class="card-body bg-light">
-        <p class="card-text"><%= truncate(data_keagamaan_katolik.keterangan) %></p>
-        <p class="card-text"><%= truncate(data_keagamaan_katolik.tautan) %></p>
+    <div class="card border-primary">
+      <div class="card-body">
+      <p class="card-title"><strong><%= data_keagamaan_katolik.judul %></strong></p>
+      <small><i>Pembuat: <%= data_keagamaan_katolik.pengguna.nama_lengkap %></i></small>
+      <div class="card-text">
+        <p><%= truncate(data_keagamaan_katolik.keterangan) %></p>
+        <p><%= truncate(data_keagamaan_katolik.tautan) %></p>
       </div>
-        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+        <div class="btn-group btn-group-lg float-right" role="group" aria-label="Basic example">
           <%= link_to fa_icon("eye"), data_keagamaan_katolik, :class => "btn btn-success", :title => "Lihat selengkapnya" %>
         <% if pengguna_signed_in? %>
           <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.administrator? %>
@@ -22,6 +27,7 @@
           <% end %>
         <% end %>
         </div>
+      </div>
     </div>
   </div>
 <% end %>
@@ -39,19 +45,24 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-md-11"><h2>Data Pendidikan Agama Katolik</h2></div>
-    <div class="col-sm-1"><%= link_to fa_icon("arrow-right"), data_pendidikan_agama_katolik_index_path, :class => "btn btn-primary", :title => "Lihat daftar data pendidikan agama katolik"  %></div>
+    <div class="col-sm-1"><%= link_to data_pendidikan_agama_katolik_index_path, :class => "btn btn-primary", :title => "Lihat daftar data pendidikan agama katolik selengkapnya" do %>
+      <i class='fa fa-arrow-right fa-beat'></i>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="row">
 <% @data_pendidikan_agama_katolik.each do |data_pendidikan_agama_katolik| %>
-  <div class="col-sm-4 p-2">
-    <div class="card bg-primary">
-      <h5 class="card-header text-white"><%= data_pendidikan_agama_katolik.judul %></h5>
-      <div class="card-body bg-light">
-        <p class="card-text"><%= truncate(data_pendidikan_agama_katolik.keterangan) %></p>
-        <p class="card-text"><%= truncate(data_pendidikan_agama_katolik.tautan) %></p>
+<div class="col-sm-4 p-2">
+    <div class="card border-primary">
+      <div class="card-body">
+      <p class="card-title"><strong><%= data_pendidikan_agama_katolik.judul %></strong></p>
+      <small><i>Pembuat: <%= data_pendidikan_agama_katolik.pengguna.nama_lengkap %></i></small>
+      <div class="card-text">
+        <p><%= truncate(data_pendidikan_agama_katolik.keterangan) %></p>
+        <p><%= truncate(data_pendidikan_agama_katolik.tautan) %></p>
       </div>
-        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+        <div class="btn-group btn-group-lg float-right" role="group" aria-label="Basic example">
           <%= link_to fa_icon("eye"), data_pendidikan_agama_katolik, :class => "btn btn-success", :title => "Lihat selengkapnya" %>
         <% if pengguna_signed_in? %>
           <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.administrator? %>
@@ -60,6 +71,7 @@
           <% end %>
         <% end %>
         </div>
+      </div>
     </div>
   </div>
 <% end %>
@@ -75,19 +87,24 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-md-11"><h2>Informasi Berita Terkini</h2></div>
-    <div class="col-sm-1"><%= link_to fa_icon("arrow-right"), informasi_berita_terkini_index_path, :class => "btn btn-primary", :title => "Lihat daftar data pendidikan agama katolik"  %></div>
+    <div class="col-sm-1"><%= link_to informasi_berita_terkini_index_path, :class => "btn btn-primary", :title => "Lihat daftar informasi berita terkini selengkapnya" do %>
+      <i class='fa fa-arrow-right fa-beat'></i>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="row">
 <% @informasi_berita_terkini.each do |informasi_berita_terkini| %>
   <div class="col-sm-4 p-2">
-    <div class="card bg-primary">
-      <h5 class="card-header text-white"><%= informasi_berita_terkini.judul %></h5>
-      <div class="card-body bg-light">
-        <p class="card-text"><%= truncate(informasi_berita_terkini.keterangan) %></p>
-        <p class="card-text"><%= truncate(informasi_berita_terkini.tautan) %></p>
+    <div class="card border-info">
+      <div class="card-body">
+      <p class="card-title"><strong><%= informasi_berita_terkini.judul %></strong></p>
+      <small><i>Pembuat: <%= informasi_berita_terkini.pengguna.nama_lengkap %></i></small>
+      <div class="card-text">
+        <p><%= truncate(informasi_berita_terkini.keterangan) %></p>
+        <p><%= truncate(informasi_berita_terkini.tautan) %></p>
       </div>
-        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+        <div class="btn-group btn-group-lg float-right" role="group" aria-label="Basic example">
           <%= link_to fa_icon("eye"), informasi_berita_terkini, :class => "btn btn-success", :title => "Lihat selengkapnya" %>
         <% if pengguna_signed_in? %>
           <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.administrator? %>
@@ -96,6 +113,7 @@
           <% end %>
         <% end %>
         </div>
+      </div>
     </div>
   </div>
 <% end %>
@@ -113,19 +131,24 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-md-11"><h2>Informasi Pengumuman</h2></div>
-    <div class="col-sm-1"><%= link_to fa_icon("arrow-right"), informasi_pengumuman_index_path, :class => "btn btn-primary", :title => "Lihat daftar data pendidikan agama katolik"  %></div>
+    <div class="col-sm-1"><%= link_to informasi_pengumuman_index_path, :class => "btn btn-primary", :title => "Lihat daftar informasi pengumuman selengkapnya" do %>
+      <i class='fa fa-arrow-right fa-beat'></i>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="row">
 <% @informasi_pengumuman.each do |informasi_pengumuman| %>
   <div class="col-sm-4 p-2">
-    <div class="card bg-primary">
-      <h5 class="card-header text-white"><%= informasi_pengumuman.judul %></h5>
-      <div class="card-body bg-light">
-        <p class="card-text"><%= truncate(informasi_pengumuman.keterangan) %></p>
-        <p class="card-text"><%= truncate(informasi_pengumuman.tautan) %></p>
+    <div class="card border-info">
+      <div class="card-body">
+      <p class="card-title"><strong><%= informasi_pengumuman.judul %></strong></p>
+      <small><i>Pembuat: <%= informasi_pengumuman.pengguna.nama_lengkap %></i></small>
+      <div class="card-text">
+        <p><%= truncate(informasi_pengumuman.keterangan) %></p>
+        <p><%= truncate(informasi_pengumuman.tautan) %></p>
       </div>
-        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+        <div class="btn-group btn-group-lg float-right" role="group" aria-label="Basic example">
           <%= link_to fa_icon("eye"), informasi_pengumuman, :class => "btn btn-success", :title => "Lihat selengkapnya" %>
         <% if pengguna_signed_in? %>
           <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.administrator? %>
@@ -134,6 +157,7 @@
           <% end %>
         <% end %>
         </div>
+      </div>
     </div>
   </div>
 <% end %>
