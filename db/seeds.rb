@@ -13,13 +13,13 @@ puts ""
 puts "Membuat Pemakai"
 pengguna_1 = Pengguna.create!(
 	email: "guru_pendakat@kemenagsumteng.go.id",
-	nama_lengkap: "Pegawai Pendakat",
+	nama_lengkap: "Guru Pendakat",
 	password: "qwerty",
 	password_confirmation: "qwerty")
 pengguna_1.confirm
 pengguna_2 = Pengguna.create!(
 	email: "pegawai_pendakat@kemenagsumteng.go.id",
-	nama_lengkap: "Guru Pendakat",
+	nama_lengkap: "Pegawai Pendakat",
 	password: "qwerty",
 	password_confirmation: "qwerty")
 pengguna_2.confirm
@@ -31,13 +31,13 @@ pengguna_3 = Pengguna.create!(
 pengguna_3.confirm
 pengguna_4 = Pengguna.create!(
 	email: "penyuluh_urakat@kemenagsumteng.go.id",
-	nama_lengkap: "Pegawai Urakat",
+	nama_lengkap: "Penyuluh Urakat",
 	password: "qwerty",
 	password_confirmation: "qwerty")
 pengguna_4.confirm
 pengguna_5 = Pengguna.create!(
 	email: "pegawai_urakat@kemenagsumteng.go.id",
-	nama_lengkap: "Penyuluh Urakat",
+	nama_lengkap: "Pegawai Urakat",
 	password: "qwerty",
 	password_confirmation: "qwerty")
 pengguna_5.confirm
@@ -159,7 +159,7 @@ puts ""
 puts ""
 puts "Membuat Laporan Penyuluh Agama Katolik"
 12.times do |i|
-  LaporanPenyuluhAgamaKatolik.create(judul: "Judul laporan guru agama katolik bulan ke-#{i}", tautan: "148cjHGXBqqghbunQxGC2tDp8z1YeCnuN", pengguna_id: pengguna_4.id)
+  LaporanPenyuluhAgamaKatolik.create(judul: "Judul laporan penyuluh agama katolik bulan ke-#{i}", tautan: "148cjHGXBqqghbunQxGC2tDp8z1YeCnuN", pengguna_id: pengguna_4.id)
 end
 puts ""
 puts "Berhasil membuat #{LaporanPenyuluhAgamaKatolik.count} Laporan Penyuluh Agama Katolik"
