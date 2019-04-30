@@ -92,6 +92,13 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  # Devise mailer setup
+  config.action_mailer.default_url_options = { host: 'afternoon-beyond-89565.herokuapp.com', port: 3000 }
+
+  # SendGrid setup
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+
   # Rails internationalization
   config.i18n.default_locale = :id
 end
