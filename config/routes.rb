@@ -9,12 +9,6 @@ Rails.application.routes.draw do
 
   devise_for :pengguna
 
-  as :pengguna do
-  	get 'signin', to: 'devise/sessions#new'
-  	post 'signin', to: 'devise/sessions#create'
-  	delete 'signout', to: 'devise/sessions#destroy'
-  end
-
 	root to: "beranda#index"
 
   get 'beranda/index'
