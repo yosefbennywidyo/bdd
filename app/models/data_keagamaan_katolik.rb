@@ -1,5 +1,4 @@
 class DataKeagamaanKatolik < ApplicationRecord
-	paginates_per 6
   belongs_to :pengguna
   validates_length_of :judul, minimum: 5, too_short: 'Judul data keagamaan katolik terlalu pendek, minimal 5 karakter!'
   validates_length_of :keterangan, minimum: 5, too_short: 'Keterangan data keagamaan katolik terlalu pendek, minimal 5 karakter!'
