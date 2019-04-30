@@ -8,9 +8,7 @@
   <%= @laporan_pegawai_bimkat_sumteng.tautan %>
 </p>
 
-<% if pengguna_signed_in? %>
-	<% if @pengguna.guru_pendakat? || @pengguna.administrator? %>
-<%= link_to 'Edit', edit_laporan_pegawai_bimkat_sumteng_path(@laporan_pegawai_bimkat_sumteng) %> |
-	<% end %>
+<% if pengguna_aktif?(@laporan_guru_agama_katolik.pengguna) %>
+<%= link_to 'Edit', edit_laporan_pegawai_bimkat_sumteng_path(@laporan_pegawai_bimkat_sumteng) %>
 <% end %>
 <%= link_to 'Batal', laporan_pegawai_bimkat_sumteng_index_path %>

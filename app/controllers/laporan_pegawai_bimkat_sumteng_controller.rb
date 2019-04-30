@@ -2,6 +2,19 @@ class LaporanPegawaiBimkatSumtengController < ApplicationController
   before_action :authenticate_pengguna!
   before_action :set_laporan_pegawai_bimkat_sumteng, only: [:show, :edit, :update, :destroy]
 
+  before_action :cek_pengguna, only: [:edit, :update, :destroy]
+
+  def cek_pengguna
+    # find the Laporan Pegawai Bimkat Sumteng
+    @laporan_pegawai_bimkat_sumteng = LaporanPegawaiBimkatSumteng.find_by(id: params[:id])
+    # find the corrent Pengguna who create current Laporan Pegawai Bimkat Sumteng
+    unless helpers.pengguna_aktif?(@laporan_pegawai_bimkat_sumteng.pengguna)
+      flash[:notice] = 'Maaf, Anda bukan pengguna yang berhak melakukannya'
+      # Redirect to page referrer
+      redirect_to request.referrer
+    end
+  end
+
   # GET /laporan_pegawai_bimkat_sumteng
   # GET /laporan_pegawai_bimkat_sumteng.json
   def index

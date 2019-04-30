@@ -17,11 +17,9 @@
       </div>
         <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
           <%= link_to fa_icon("eye"), laporan_pegawai_bimkat_sumteng, :class => "btn btn-success", :title => "Lihat #{laporan_pegawai_bimkat_sumteng.judul}" %>
-        <% if pengguna_signed_in? %>
-          <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.administrator? %>
+        <% if pengguna_aktif?(laporan_guru_agama_katolik.pengguna) %>
           <%= link_to fa_icon("pencil"), edit_laporan_pegawai_bimkat_sumteng_path(laporan_pegawai_bimkat_sumteng), :class => "btn btn-warning", :title => "Edit #{laporan_pegawai_bimkat_sumteng.judul}"  %>
           <%= link_to fa_icon("trash"), laporan_pegawai_bimkat_sumteng, method: :delete, data: { confirm: "Anda yakin akan menghapus #{laporan_pegawai_bimkat_sumteng.judul}?" }, :class => "btn btn-danger", :title => "Hapus #{laporan_pegawai_bimkat_sumteng.judul}"  %>
-          <% end %>
         <% end %>
         </div>
     </div>

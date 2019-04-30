@@ -17,11 +17,9 @@
       </div>
         <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
           <%= link_to fa_icon("eye"), laporan_guru_agama_katolik, :class => "btn btn-success", :title => "Lihat #{laporan_guru_agama_katolik.judul}" %>
-        <% if pengguna_signed_in? %>
-          <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.administrator? %>
+        <% if pengguna_aktif?(laporan_guru_agama_katolik.pengguna) %>
           <%= link_to fa_icon("pencil"), edit_laporan_guru_agama_katolik_path(laporan_guru_agama_katolik), :class => "btn btn-warning", :title => "Edit #{laporan_guru_agama_katolik.judul}"  %>
           <%= link_to fa_icon("trash"), laporan_guru_agama_katolik, method: :delete, data: { confirm: "Anda yakin akan menghapus #{laporan_guru_agama_katolik.judul}?" }, :class => "btn btn-danger", :title => "Hapus #{laporan_guru_agama_katolik.judul}"  %>
-          <% end %>
         <% end %>
         </div>
     </div>

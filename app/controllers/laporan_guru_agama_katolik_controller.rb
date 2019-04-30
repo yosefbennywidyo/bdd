@@ -2,6 +2,19 @@ class LaporanGuruAgamaKatolikController < ApplicationController
   before_action :authenticate_pengguna!
   before_action :set_laporan_guru_agama_katolik, only: [:show, :edit, :update, :destroy]
 
+  before_action :cek_pengguna, only: [:edit, :update, :destroy]
+
+  def cek_pengguna
+    # find the Laporan Guru Agama Katolik
+    @laporan_guru_agama_katolik = LaporanGuruAgamaKatolik.find_by(id: params[:id])
+    # find the corrent Pengguna who create current Laporan Guru Agama Katolik
+    unless helpers.pengguna_aktif?(@laporan_guru_agama_katolik.pengguna)
+      flash[:notice] = 'Maaf, Anda bukan pengguna yang berhak melakukannya'
+      # Redirect to page referrer
+      redirect_to request.referrer
+    end
+  end
+
   # GET /laporan_guru_agama_katolik
   # GET /laporan_guru_agama_katolik.json
   def index
