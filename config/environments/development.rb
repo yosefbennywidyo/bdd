@@ -60,7 +60,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Devise mailer setup
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'afternoon-beyond-89565.herokuapp.com', port: 3000 }
 
   # Rails internationalization
   config.i18n.default_locale = :id
