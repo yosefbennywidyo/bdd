@@ -12,10 +12,12 @@ class ApplicationController < ActionController::Base
 	end
 
 	# Reditect to a default route when user inputs a wrong one
-	rescue_from ActionController::RoutingError do |exception|
-		logger.error 'Terjadi kesalahan Routing'
-		redirect_to root_path
-	end
+	
+	#rescue_from ActionController::RoutingError do |exception|
+	#	logger.error 'Terjadi kesalahan Routing'
+	#	redirect_to root_path
+	#	render plain: '404 Not found', status: 404 
+	#end
 
 	# Overwriting the sign_out redirect path method
 	def sign_out_and_redirect(pengguna)

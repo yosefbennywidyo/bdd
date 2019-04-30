@@ -1,8 +1,4 @@
-class BerandaController < ApplicationController
-  def catch_404
-    raise ActionController::RoutingError.new(params[:path])
-  end
-  
+class BerandaController < ApplicationController  
   def index
   	@data_keagamaan_katolik = DataKeagamaanKatolik.order("created_at DESC").page(params[:data_keagamaan_katolik_page]).per(3)
   	@data_pendidikan_agama_katolik = DataPendidikanAgamaKatolik.order("created_at DESC").page(params[:data_pendidikan_agama_katolik_page]).per(3)
