@@ -10,21 +10,23 @@
 <div class="row">
 <% @laporan_penyuluh_agama_katolik.each do |laporan_penyuluh_agama_katolik| %>
   <div class="col-sm-4 p-2">
-    <div class="card bg-primary">
-      <h5 class="card-header text-white"><%= laporan_penyuluh_agama_katolik.judul %></h5>
-      <div class="card-body bg-light">
-        <p class="card-text"><%= truncate(laporan_penyuluh_agama_katolik.tautan) %></p>
+    <div class="card border-primary">
+      <div class="card-body">
+      <p class="card-title"><strong><%= laporan_penyuluh_agama_katolik.judul %></strong></p>
+      <small><i>Pembuat: <%= laporan_penyuluh_agama_katolik.pengguna.nama_lengkap %></i></small>
+      <div class="card-text">
+        <%= truncate(laporan_penyuluh_agama_katolik.tautan) %>
       </div>
-      <div class="card-footer bg-secondary text-small text-white">
-        dibuat oleh: <%= laporan_penyuluh_agama_katolik.pengguna.nama_lengkap %>
-      </div>
-        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+        <div class="btn-group btn-group-lg float-right" role="group" aria-label="Basic example">
           <%= link_to fa_icon("eye"), laporan_penyuluh_agama_katolik, :class => "btn btn-success", :title => "Lihat #{laporan_penyuluh_agama_katolik.judul}" %>
-        <% if pengguna_aktif?(laporan_guru_agama_katolik.pengguna) %>
+        <% if current_pengguna %>
+          <% if current_pengguna.penyuluh_urakat? %>
           <%= link_to fa_icon("pencil"), edit_laporan_penyuluh_agama_katolik_path(laporan_penyuluh_agama_katolik), :class => "btn btn-warning", :title => "Edit #{laporan_penyuluh_agama_katolik.judul}"  %>
           <%= link_to fa_icon("trash"), laporan_penyuluh_agama_katolik, method: :delete, data: { confirm: "Anda yakin akan menghapus #{laporan_penyuluh_agama_katolik.judul}?" }, :class => "btn btn-danger", :title => "Hapus #{laporan_penyuluh_agama_katolik.judul}"  %>
+          <% end %>
         <% end %>
         </div>
+      </div>
     </div>
   </div>
 <% end %>

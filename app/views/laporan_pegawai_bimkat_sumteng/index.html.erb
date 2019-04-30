@@ -10,18 +10,23 @@
 <div class="row">
 <% @laporan_pegawai_bimkat_sumteng.each do |laporan_pegawai_bimkat_sumteng| %>
   <div class="col-sm-4 p-2">
-    <div class="card bg-primary">
-      <h5 class="card-header text-white"><%= laporan_pegawai_bimkat_sumteng.judul %></h5>
-      <div class="card-body bg-light">
-        <p class="card-text"><%= truncate(laporan_pegawai_bimkat_sumteng.tautan) %></p>
+    <div class="card border-primary">
+      <div class="card-body">
+      <p class="card-title"><strong><%= laporan_pegawai_bimkat_sumteng.judul %></strong></p>
+      <small><i>Pembuat: <%= laporan_pegawai_bimkat_sumteng.pengguna.nama_lengkap %></i></small>
+      <div class="card-text">
+        <%= truncate(laporan_pegawai_bimkat_sumteng.tautan) %>
       </div>
-        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+        <div class="btn-group btn-group-lg float-right" role="group" aria-label="Basic example">
+        <% if current_pengguna %>
+          <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.pegawai_urakat? || current_pengguna.kasie_urakat? %>
           <%= link_to fa_icon("eye"), laporan_pegawai_bimkat_sumteng, :class => "btn btn-success", :title => "Lihat #{laporan_pegawai_bimkat_sumteng.judul}" %>
-        <% if pengguna_aktif?(laporan_guru_agama_katolik.pengguna) %>
           <%= link_to fa_icon("pencil"), edit_laporan_pegawai_bimkat_sumteng_path(laporan_pegawai_bimkat_sumteng), :class => "btn btn-warning", :title => "Edit #{laporan_pegawai_bimkat_sumteng.judul}"  %>
           <%= link_to fa_icon("trash"), laporan_pegawai_bimkat_sumteng, method: :delete, data: { confirm: "Anda yakin akan menghapus #{laporan_pegawai_bimkat_sumteng.judul}?" }, :class => "btn btn-danger", :title => "Hapus #{laporan_pegawai_bimkat_sumteng.judul}"  %>
+          <% end %>
         <% end %>
         </div>
+      </div>
     </div>
   </div>
 <% end %>

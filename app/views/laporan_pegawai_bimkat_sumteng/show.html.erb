@@ -8,7 +8,9 @@
   <%= @laporan_pegawai_bimkat_sumteng.tautan %>
 </p>
 
-<% if pengguna_aktif?(@laporan_guru_agama_katolik.pengguna) %>
+<% if current_pengguna %>
+	<% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.pegawai_urakat? || current_pengguna.kasie_urakat? %>
 <%= link_to 'Edit', edit_laporan_pegawai_bimkat_sumteng_path(@laporan_pegawai_bimkat_sumteng) %>
+	<% end %>
 <% end %>
 <%= link_to 'Batal', laporan_pegawai_bimkat_sumteng_index_path %>
