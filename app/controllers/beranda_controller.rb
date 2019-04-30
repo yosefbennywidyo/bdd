@@ -1,9 +1,9 @@
 class BerandaController < ApplicationController
   def index
-  	@data_keagamaan_katolik = DataKeagamaanKatolik.order("created_at DESC").page params[:page]
-  	@data_pendidikan_agama_katolik = DataPendidikanAgamaKatolik.order("created_at DESC").page params[:page]
-  	@informasi_berita_terkini = InformasiBeritaTerkini.order("created_at DESC").page params[:page]
-  	@informasi_pengumuman = InformasiPengumuman.order("created_at DESC").page params[:page]
+  	@data_keagamaan_katolik = DataKeagamaanKatolik.order("created_at DESC").page params[:data_keagamaan_katolik_page]
+  	@data_pendidikan_agama_katolik = DataPendidikanAgamaKatolik.order("created_at DESC").page params[:data_pendidikan_agama_katolik_page]
+  	@informasi_berita_terkini = InformasiBeritaTerkini.order("created_at DESC").page params[:informasi_berita_terkini_page]
+  	@informasi_pengumuman = InformasiPengumuman.order("created_at DESC").page params[:informasi_pengumuman_page]
   end
 
   	# Use callbacks to share common setup or constraints between actions.
