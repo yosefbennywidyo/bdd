@@ -1,31 +1,36 @@
-<h1>Daftar Laporan Penyuluh Agama Katolik</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Judul</th>
-      <th>Tautan</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @laporan_penyuluh_agama_katolik.each do |laporan_penyuluh_agama_katolik| %>
-      <tr>
-        <td><%= laporan_penyuluh_agama_katolik.judul %></td>
-        <td><%= laporan_penyuluh_agama_katolik.tautan %></td>
-        <td><%= link_to 'Tampilkan', laporan_penyuluh_agama_katolik %></td>
-      <% if pengguna_signed_in? %>
-        <% if @pengguna.guru_pendakat? || @pengguna.administrator? %>
-        <td><%= link_to 'Edit', edit_laporan_penyuluh_agama_katolik_path(laporan_penyuluh_agama_katolik) %></td>
-        <td><%= link_to 'Hapus', laporan_penyuluh_agama_katolik, method: :delete, data: { confirm: 'Anda yakin ingin menghapusnya?' } %></td>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-10"><h2>Daftar Laporan Penyuluh Agama Katolik</h2></div>
+    <div class="col-sm-2">
+      <%= link_to fa_icon("arrow-left"), beranda_index_path, :class => "btn btn-primary", :title => "Kembali ke Beranda"  %>
+      <%= link_to fa_icon("plus-square"), new_laporan_penyuluh_agama_katolik_path, :class => "btn btn-primary", :title => "Membuat laporan penyuluh agama katolik"  %>
+      </div>
+  </div>
+</div>
+<div class="row">
+<% @laporan_penyuluh_agama_katolik.each do |laporan_penyuluh_agama_katolik| %>
+  <div class="col-sm-4 p-2">
+    <div class="card bg-primary">
+      <h5 class="card-header text-white"><%= laporan_penyuluh_agama_katolik.judul %></h5>
+      <div class="card-body bg-light">
+        <p class="card-text"><%= truncate(laporan_penyuluh_agama_katolik.keterangan) %></p>
+        <p class="card-text"><%= truncate(laporan_penyuluh_agama_katolik.tautan) %></p>
+      </div>
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+          <%= link_to fa_icon("eye"), laporan_penyuluh_agama_katolik, :class => "btn btn-success", :title => "Lihat #{laporan_penyuluh_agama_katolik.judul}" %>
+        <% if pengguna_signed_in? %>
+          <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.administrator? %>
+          <%= link_to fa_icon("pencil"), edit_laporan_penyuluh_agama_katolik_path(laporan_penyuluh_agama_katolik), :class => "btn btn-warning", :title => "Edit #{laporan_penyuluh_agama_katolik.judul}"  %>
+          <%= link_to fa_icon("trash"), laporan_penyuluh_agama_katolik, method: :delete, data: { confirm: "Anda yakin akan menghapus #{laporan_penyuluh_agama_katolik.judul}?" }, :class => "btn btn-danger", :title => "Hapus #{laporan_penyuluh_agama_katolik.judul}"  %>
+          <% end %>
         <% end %>
-      <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Membuat Laporan Penyuluh Agama Katolik', new_laporan_penyuluh_agama_katolik_path %>
+        </div>
+    </div>
+  </div>
+<% end %>
+</div>
+<div class="container pagination justify-content-center" >
+  <%= paginate @laporan_penyuluh_agama_katolik, :param_name => "daftar_laporan_penyuluh_agama_katolik_page", :class => "pagination-sm" %>
+</div>
+<p style="text-align: center;"><%= page_entries_info @laporan_penyuluh_agama_katolik, entry_name: 'laporan penyuluh agama katolik' %></p>
+</div>

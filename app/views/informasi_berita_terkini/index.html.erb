@@ -1,35 +1,36 @@
-<h1>Daftar Informasi Berita Terkini</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Judul</th>
-      <th>Keterangan</th>
-      <th>Tautan</th>
-      <th>Pengguna</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @informasi_berita_terkini.each do |informasi_berita_terkini| %>
-      <tr>
-        <td><%= informasi_berita_terkini.judul %></td>
-        <td><%= informasi_berita_terkini.keterangan %></td>
-        <td><%= informasi_berita_terkini.tautan %></td>
-        <td><%= informasi_berita_terkini.pengguna %></td>
-        <td><%= link_to 'Tampilkan', informasi_berita_terkini %></td>
-      <% if pengguna_signed_in? %>
-        <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
-        <td><%= link_to 'Edit', edit_informasi_berita_terkini_path(informasi_berita_terkini) %></td>
-        <td><%= link_to 'Hapus', informasi_berita_terkini, method: :delete, data: { confirm: 'Anda yakin mau menghapusnya?' } %></td>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-10"><h2>Daftar Informasi Berita Terkini</h2></div>
+    <div class="col-sm-2">
+      <%= link_to fa_icon("arrow-left"), beranda_index_path, :class => "btn btn-primary", :title => "Kembali ke Beranda"  %>
+      <%= link_to fa_icon("plus-square"), new_informasi_berita_terkini_path, :class => "btn btn-primary", :title => "Membuat informasi berita terkini"  %>
+      </div>
+  </div>
+</div>
+<div class="row">
+<% @informasi_berita_terkini.each do |informasi_berita_terkini| %>
+  <div class="col-sm-4 p-2">
+    <div class="card bg-primary">
+      <h5 class="card-header text-white"><%= informasi_berita_terkini.judul %></h5>
+      <div class="card-body bg-light">
+        <p class="card-text"><%= truncate(informasi_berita_terkini.keterangan) %></p>
+        <p class="card-text"><%= truncate(informasi_berita_terkini.tautan) %></p>
+      </div>
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+          <%= link_to fa_icon("eye"), informasi_berita_terkini, :class => "btn btn-success", :title => "Lihat #{informasi_berita_terkini.judul}" %>
+        <% if pengguna_signed_in? %>
+          <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.administrator? %>
+          <%= link_to fa_icon("pencil"), edit_informasi_berita_terkini_path(informasi_berita_terkini), :class => "btn btn-warning", :title => "Edit #{informasi_berita_terkini.judul}"  %>
+          <%= link_to fa_icon("trash"), informasi_berita_terkini, method: :delete, data: { confirm: "Anda yakin akan menghapus #{informasi_berita_terkini.judul}?" }, :class => "btn btn-danger", :title => "Hapus #{informasi_berita_terkini.judul}"  %>
+          <% end %>
         <% end %>
-      <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Membuat Informasi Berita Terkini', new_informasi_berita_terkini_path %>
+        </div>
+    </div>
+  </div>
+<% end %>
+</div>
+<div class="container pagination justify-content-center" >
+  <%= paginate @informasi_berita_terkini, :param_name => "daftar_informasi_berita_terkini_page", :class => "pagination-sm" %>
+</div>
+<p style="text-align: center;"><%= page_entries_info @informasi_berita_terkini, entry_name: 'informasi berita terkini' %></p>
+</div>

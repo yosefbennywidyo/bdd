@@ -1,35 +1,36 @@
-<h1>Daftar Informasi Pengumuman</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Judul</th>
-      <th>Keterangan</th>
-      <th>Tautan</th>
-      <th>Pengguna</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @informasi_pengumuman.each do |informasi_pengumuman| %>
-      <tr>
-        <td><%= informasi_pengumuman.judul %></td>
-        <td><%= informasi_pengumuman.keterangan %></td>
-        <td><%= informasi_pengumuman.tautan %></td>
-        <td><%= informasi_pengumuman.pengguna %></td>
-        <td><%= link_to 'Tampilkan', informasi_pengumuman %></td>
-      <% if pengguna_signed_in? %>
-        <% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
-        <td><%= link_to 'Edit', edit_informasi_pengumuman_path(informasi_pengumuman) %></td>
-        <td><%= link_to 'Hapus', informasi_pengumuman, method: :delete, data: { confirm: 'Anda yakin mau menghapusnya?' } %></td>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-10"><h2>Daftar Informasi Pengumuman</h2></div>
+    <div class="col-sm-2">
+      <%= link_to fa_icon("arrow-left"), beranda_index_path, :class => "btn btn-primary", :title => "Kembali ke Beranda"  %>
+      <%= link_to fa_icon("plus-square"), new_informasi_pengumuman_path, :class => "btn btn-primary", :title => "Membuat informasi pengumuman"  %>
+      </div>
+  </div>
+</div>
+<div class="row">
+<% @informasi_pengumuman.each do |informasi_pengumuman| %>
+  <div class="col-sm-4 p-2">
+    <div class="card bg-primary">
+      <h5 class="card-header text-white"><%= informasi_pengumuman.judul %></h5>
+      <div class="card-body bg-light">
+        <p class="card-text"><%= truncate(informasi_pengumuman.keterangan) %></p>
+        <p class="card-text"><%= truncate(informasi_pengumuman.tautan) %></p>
+      </div>
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+          <%= link_to fa_icon("eye"), informasi_pengumuman, :class => "btn btn-success", :title => "Lihat #{informasi_pengumuman.judul}" %>
+        <% if pengguna_signed_in? %>
+          <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.administrator? %>
+          <%= link_to fa_icon("pencil"), edit_informasi_pengumuman_path(informasi_pengumuman), :class => "btn btn-warning", :title => "Edit #{informasi_pengumuman.judul}"  %>
+          <%= link_to fa_icon("trash"), informasi_pengumuman, method: :delete, data: { confirm: "Anda yakin akan menghapus #{informasi_pengumuman.judul}?" }, :class => "btn btn-danger", :title => "Hapus #{informasi_pengumuman.judul}"  %>
+          <% end %>
         <% end %>
-      <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Membuat Informasi Pengumuman', new_informasi_pengumuman_path %>
+        </div>
+    </div>
+  </div>
+<% end %>
+</div>
+<div class="container pagination justify-content-center" >
+  <%= paginate @informasi_pengumuman, :param_name => "daftar_informasi_pengumuman_page", :class => "pagination-sm" %>
+</div>
+<p style="text-align: center;"><%= page_entries_info @informasi_pengumuman, entry_name: 'informasi pengumuman' %></p>
+</div>
