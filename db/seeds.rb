@@ -93,7 +93,7 @@ puts ""
 puts ""
 puts "Membuat Data Keagamaan Katolik"
 10.times do |i|
-  DataKeagamaanKatolik.create(judul: "Judul data keagamaan katolik ke-#{i}", keterangan: "Keterangan data keagamaan katolik ke-#{i}", tautan: "148cjHGXBqqghbunQxGC2tDp8z1YeCnuN", pengguna_id: pengguna_2.id)
+  DataKeagamaanKatolik.create(judul: "Judul data keagamaan katolik ke-#{i}", keterangan: "Keterangan data keagamaan katolik ke-#{i}", tautan: "148cjHGXBqqghbunQxGC2tDp8z1YeCnuN", pengguna_id: pengguna_5.id)
 end
 puts ""
 puts "Berhasil membuat #{DataKeagamaanKatolik.count} Data Keagamaan Katolik"
@@ -139,6 +139,51 @@ end
 end
 puts ""
 puts "Berhasil membuat #{InformasiPengumuman.count} Informasi Pengumuman"
+puts ""
+puts ""
+puts ""
+puts ""
+puts ""
+puts ""
+puts "Membuat Laporan Guru Agama Katolik"
+12.times do |i|
+  LaporanGuruAgamaKatolik.create(judul: "Judul laporan guru agama katolik bulan ke-#{i}", tautan: "148cjHGXBqqghbunQxGC2tDp8z1YeCnuN", pengguna_id: pengguna_1.id)
+end
+puts ""
+puts "Berhasil membuat #{LaporanGuruAgamaKatolik.count} Laporan Guru Agama Katolik"
+puts ""
+puts ""
+puts ""
+puts ""
+puts ""
+puts ""
+puts "Membuat Laporan Penyuluh Agama Katolik"
+12.times do |i|
+  LaporanPenyuluhAgamaKatolik.create(judul: "Judul laporan guru agama katolik bulan ke-#{i}", tautan: "148cjHGXBqqghbunQxGC2tDp8z1YeCnuN", pengguna_id: pengguna_4.id)
+end
+puts ""
+puts "Berhasil membuat #{LaporanPenyuluhAgamaKatolik.count} Laporan Penyuluh Agama Katolik"
+puts ""
+puts ""
+puts ""
+puts ""
+puts ""
+puts ""
+puts "Membuat Laporan Pegawai Bimkat Sumteng"
+12.times do |i|
+  LaporanPegawaiBimkatSumteng.create(judul: "Judul laporan pegawai pendakat bulan ke-#{i}", tautan: "148cjHGXBqqghbunQxGC2tDp8z1YeCnuN", pengguna_id: pengguna_2.id)
+end
+12.times do |i|
+  LaporanPegawaiBimkatSumteng.create(judul: "Judul laporan pegawai pendakat bulan ke-#{i}", tautan: "148cjHGXBqqghbunQxGC2tDp8z1YeCnuN", pengguna_id: pengguna_3.id)
+end
+12.times do |i|
+  LaporanPegawaiBimkatSumteng.create(judul: "Judul laporan pegawai urakat bulan ke-#{i}", tautan: "148cjHGXBqqghbunQxGC2tDp8z1YeCnuN", pengguna_id: pengguna_5.id)
+end
+12.times do |i|
+  LaporanPegawaiBimkatSumteng.create(judul: "Judul laporan pegawai urakat bulan ke-#{i}", tautan: "148cjHGXBqqghbunQxGC2tDp8z1YeCnuN", pengguna_id: pengguna_6.id)
+end
+puts ""
+puts "Berhasil membuat #{LaporanPegawaiBimkatSumteng.count} Laporan Pegawai Bimkat Sumteng"
 puts ""
 puts ""
 puts ""
