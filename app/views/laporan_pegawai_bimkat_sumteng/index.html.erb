@@ -1,31 +1,38 @@
-<h1>Daftar Laporan Pegawai Bimkat Sumteng</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Judul</th>
-      <th>Tautan</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @laporan_pegawai_bimkat_sumteng.each do |laporan_pegawai_bimkat_sumteng| %>
-      <tr>
-        <td><%= laporan_pegawai_bimkat_sumteng.judul %></td>
-        <td><%= laporan_pegawai_bimkat_sumteng.tautan %></td>
-        <td><%= link_to 'Tampilkan', laporan_pegawai_bimkat_sumteng %></td>
-      <% if pengguna_signed_in? %>
-        <% if @pengguna.guru_pendakat? || @pengguna.administrator? %>
-        <td><%= link_to 'Edit', edit_laporan_pegawai_bimkat_sumteng_path(laporan_pegawai_bimkat_sumteng) %></td>
-        <td><%= link_to 'Hapus', laporan_pegawai_bimkat_sumteng, method: :delete, data: { confirm: 'Anda yakin ingin menghapusnya?' } %></td>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-10"><h2>Daftar Laporan Pegawai Bimkat Sumteng</h2></div>
+    <div class="col-sm-2">
+      <%= link_to fa_icon("arrow-left"), beranda_index_path, :class => "btn btn-secondary", :title => "Kembali ke Beranda"  %>
+      <%= link_to fa_icon("plus-square"), new_laporan_pegawai_bimkat_sumteng_path, :class => "btn btn-success", :title => "Membuat laporan pegawai bimkat sumteng"  %>
+      </div>
+  </div>
+</div>
+<div class="row">
+<% @laporan_pegawai_bimkat_sumteng.each do |laporan_pegawai_bimkat_sumteng| %>
+  <div class="col-sm-4 p-2">
+    <div class="card border-danger">
+      <div class="card-body">
+      <p class="card-title"><strong><%= laporan_pegawai_bimkat_sumteng.judul %></strong></p>
+      <small><i>Pembuat: <%= laporan_pegawai_bimkat_sumteng.pengguna.nama_lengkap %></i></small>
+      <div class="card-text">
+        <%= truncate(laporan_pegawai_bimkat_sumteng.tautan) %>
+      </div>
+        <div class="btn-group btn-group-lg float-right" role="group" aria-label="Basic example">
+        <% if current_pengguna %>
+          <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.pegawai_urakat? || current_pengguna.kasie_urakat? %>
+          <%= link_to fa_icon("eye"), laporan_pegawai_bimkat_sumteng, :class => "btn btn-success", :title => "Lihat #{laporan_pegawai_bimkat_sumteng.judul}" %>
+          <%= link_to fa_icon("pencil"), edit_laporan_pegawai_bimkat_sumteng_path(laporan_pegawai_bimkat_sumteng), :class => "btn btn-warning", :title => "Edit #{laporan_pegawai_bimkat_sumteng.judul}"  %>
+          <%= link_to fa_icon("trash"), laporan_pegawai_bimkat_sumteng, method: :delete, data: { confirm: "Anda yakin akan menghapus #{laporan_pegawai_bimkat_sumteng.judul}?" }, :class => "btn btn-danger", :title => "Hapus #{laporan_pegawai_bimkat_sumteng.judul}"  %>
+          <% end %>
         <% end %>
-      <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Membuat Laporan Pegawai Bimkat Sumteng', new_laporan_pegawai_bimkat_sumteng_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+<div class="container pagination justify-content-center" >
+  <%= paginate @laporan_pegawai_bimkat_sumteng, :param_name => "daftar_laporan_pegawai_bimkat_sumteng_page", :class => "pagination-sm" %>
+</div>
+<p style="text-align: center;"><%= page_entries_info @laporan_pegawai_bimkat_sumteng, entry_name: 'laporan pegawai bimkat sumteng' %></p>
+</div>

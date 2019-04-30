@@ -5,8 +5,7 @@ class DataKeagamaanKatolikController < ApplicationController
   # GET /data_keagamaan_katolik
   # GET /data_keagamaan_katolik.json
   def index
-    @data_keagamaan_katolik = DataKeagamaanKatolik.all.order("created_at DESC")
-    @pengguna = current_pengguna
+    @data_keagamaan_katolik = DataKeagamaanKatolik.order("created_at DESC").page(params[:daftar_data_keagamaan_katolik_page]).per(6)
   end
 
   # GET /data_keagamaan_katolik/1

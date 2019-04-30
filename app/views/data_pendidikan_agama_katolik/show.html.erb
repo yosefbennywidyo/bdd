@@ -1,19 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Judul:</strong>
-  <%= @data_pendidikan_agama_katolik.judul %>
-</p>
-
-<p>
-  <strong>Keterangan:</strong>
-  <%= @data_pendidikan_agama_katolik.keterangan %>
-</p>
-
-<p>
-  <strong>Pengguna:</strong>
-  <%= @data_pendidikan_agama_katolik.pengguna %>
-</p>
-
-<%= link_to 'Edit', edit_data_pendidikan_agama_katolik_path(@data_pendidikan_agama_katolik) %> |
-<%= link_to 'Batal', data_pendidikan_agama_katolik_index_path %>
+<div class="row">
+  <div class="col-12 col-md-12">
+    <div class="card border-primary">
+      <iframe class="card-img-top" src="https://drive.google.com/file/d/<%= @data_pendidikan_agama_katolik.tautan %>/preview" style="height:23rem;" frameborder="0"></iframe>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-10">
+            <h2 class="card-title"><%= @data_pendidikan_agama_katolik.judul %></h2>
+            <p class="card-text"><%= @data_pendidikan_agama_katolik.keterangan %></p>
+          </div>
+          <div class="col-md-2">
+            <div class="btn-group btn-group-lg float-right" role="group" aria-label="tampilkan-kembali">
+            <%= link_to edit_data_pendidikan_agama_katolik_path(@data_pendidikan_agama_katolik), :class => "btn btn-warning" do %>
+              <i class="fa fa-pencil"></i>
+                Edit
+              <% end %>
+            <%= link_to data_pendidikan_agama_katolik_index_path, :class => "btn btn-secondary"  do %>
+              <i class="fa fa-arrow-left"></i>
+                Batal
+              <% end %>
+            </div>
+          </div>
+        </div> 
+      </div>  
+    </div>
+  </div>
+</div>

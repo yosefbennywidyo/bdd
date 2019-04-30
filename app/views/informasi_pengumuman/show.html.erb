@@ -1,27 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Judul:</strong>
-  <%= @informasi_pengumuman.judul %>
-</p>
-
-<p>
-  <strong>Keterangan:</strong>
-  <%= @informasi_pengumuman.keterangan %>
-</p>
-
-<p>
-  <strong>Tautan:</strong>
-  <%= @informasi_pengumuman.tautan %>
-</p>
-
-<p>
-  <strong>Pengguna:</strong>
-  <%= @informasi_pengumuman.pengguna %>
-</p>
-<% if pengguna_signed_in? %>
-	<% if @pengguna.pegawai_pendakat? || @pengguna.penyelenggara_pendakat? || @pengguna.administrator? %>
-<%= link_to 'Edit', edit_informasi_pengumuman_path(@informasi_pengumuman) %> |
-	<% end %>
-<% end %>
-<%= link_to 'Batal', informasi_pengumuman_index_path %>
+<div class="row">
+  <div class="col-12 col-md-12">
+    <div class="card border-success">
+      <iframe class="card-img-top" src="https://drive.google.com/file/d/<%= @informasi_pengumuman.tautan %>/preview" style="height:23rem;" frameborder="0"></iframe>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-10">
+            <h2 class="card-title"><%= @informasi_pengumuman.judul %></h2>
+            <p class="card-text"><%= @informasi_pengumuman.keterangan %></p>
+          </div>
+          <div class="col-md-2">
+            <div class="btn-group btn-group-lg float-right" role="group" aria-label="tampilkan-kembali">
+            <%= link_to edit_informasi_pengumuman_path(@informasi_pengumuman), :class => "btn btn-warning" do %>
+              <i class="fa fa-pencil"></i>
+                Edit
+              <% end %>
+            <%= link_to informasi_pengumuman_index_path, :class => "btn btn-secondary"  do %>
+              <i class="fa fa-arrow-left"></i>
+                Batal
+              <% end %>
+            </div>
+          </div>
+        </div> 
+      </div>  
+    </div>
+  </div>
+</div>

@@ -4,9 +4,12 @@ end
 
 Maka("saya berada di Beranda") do
 	find("h2", :text => "Daftar Data Keagamaan Katolik")
+<<<<<<< HEAD
 	find("h2", :text => "Daftar Data Pendidikan Agama Katolik")
 	find("h2", :text => "Daftar Informasi Berita Terkini")
 	find("h2", :text => "Daftar Informasi Pengumuman")
+=======
+>>>>>>> pagination
 end
 
 Ketika("saya mengisi form pendaftaran") do
