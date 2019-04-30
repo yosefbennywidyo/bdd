@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
 
 	protect_from_forgery with: :exception
 
-	def pengguna_aktif
-		@pengguna = current_pengguna
-	end
-
 	protected
     # Never trust parameters from the scary internet, only allow the white list through.
 	def configure_permitted_parameters
