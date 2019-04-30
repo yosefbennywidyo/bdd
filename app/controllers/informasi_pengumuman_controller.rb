@@ -5,7 +5,7 @@ class InformasiPengumumanController < ApplicationController
   # GET /informasi_pengumuman
   # GET /informasi_pengumuman.json
   def index
-    @informasi_pengumuman = InformasiPengumuman.all
+    @informasi_pengumuman = InformasiPengumuman.order("created_at DESC").page(params[:daftar_informasi_pengumuman_page]).per(6)
   end
 
   # GET /informasi_pengumuman/1

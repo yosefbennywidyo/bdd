@@ -5,7 +5,7 @@ class DataPendidikanAgamaKatolikController < ApplicationController
   # GET /data_pendidikan_agama_katolik
   # GET /data_pendidikan_agama_katolik.json
   def index
-    @data_pendidikan_agama_katolik = DataPendidikanAgamaKatolik.all
+    @data_pendidikan_agama_katolik = DataPendidikanAgamaKatolik.order("created_at DESC").page(params[:daftar_data_pendidikan_agama_katolik_page]).per(6)
   end
 
   # GET /data_pendidikan_agama_katolik/1

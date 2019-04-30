@@ -5,7 +5,7 @@ class LaporanPegawaiBimkatSumtengController < ApplicationController
   # GET /laporan_pegawai_bimkat_sumteng
   # GET /laporan_pegawai_bimkat_sumteng.json
   def index
-    @laporan_pegawai_bimkat_sumteng = LaporanPegawaiBimkatSumteng.all
+    @laporan_pegawai_bimkat_sumteng = LaporanPegawaiBimkatSumteng.order("created_at DESC").page(params[:daftar_laporan_pegawai_bimkat_sumteng_page]).per(6)
   end
 
   # GET /laporan_pegawai_bimkat_sumteng/1
