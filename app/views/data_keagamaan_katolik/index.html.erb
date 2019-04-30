@@ -1,33 +1,33 @@
-<h1>Daftar Data Keagamaan Katolik</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Judul</th>
-      <th>Keterangan</th>
-      <th>Tautan</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @data_keagamaan_katolik.each do |data_keagamaan_katolik| %>
-      <tr>
-        <td><%= data_keagamaan_katolik.judul %></td>
-        <td><%= data_keagamaan_katolik.keterangan %></td>
-        <td><%= data_keagamaan_katolik.tautan %></td>
-        <td><%= link_to 'Tampilkan', data_keagamaan_katolik %></td>
-      <% if pengguna_signed_in? %>
-        <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.administrator? %>
-        <td><%= link_to 'Edit', edit_data_keagamaan_katolik_path(data_keagamaan_katolik) %></td>
-        <td><%= link_to 'Hapus', data_keagamaan_katolik, method: :delete, data: { confirm: 'Anda yakin mau menghapusnya?' } %></td>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-11"><h2>Daftar Data Keagamaan Katolik</h2></div>
+    <div class="col-sm-1"><%= link_to fa_icon("plus-square"), new_data_keagamaan_katolik_path, :class => "btn btn-primary", :title => "Membuat data keagamaan katolik"  %></div>
+  </div>
+</div>
+<div class="row">
+<% @data_keagamaan_katolik.each do |data_keagamaan_katolik| %>
+  <div class="col-sm-4 p-2">
+    <div class="card bg-primary">
+      <h5 class="card-header text-white"><%= data_keagamaan_katolik.judul %></h5>
+      <div class="card-body bg-light">
+        <p class="card-text"><%= truncate(data_keagamaan_katolik.keterangan) %></p>
+        <p class="card-text"><%= truncate(data_keagamaan_katolik.tautan) %></p>
+      </div>
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+          <%= link_to fa_icon("eye"), data_keagamaan_katolik, :class => "btn btn-success", :title => "Lihat selengkapnya" %>
+        <% if pengguna_signed_in? %>
+          <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.administrator? %>
+          <%= link_to fa_icon("pencil"), edit_informasi_pengumuman_path(informasi_pengumuman), :class => "btn btn-warning", :title => "Edit #{informasi_pengumuman}"  %>
+          <%= link_to fa_icon("trash"), informasi_pengumuman, method: :delete, data: { confirm: 'Anda yakin?' }, :class => "btn btn-danger", :title => "Hapus #{informasi_pengumuman}"  %>
+          <% end %>
         <% end %>
-      <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Membuat Data Keagamaan Katolik', new_data_keagamaan_katolik_path %>
+        </div>
+    </div>
+  </div>
+<% end %>
+</div>
+<div class="container pagination justify-content-center" >
+  <%= paginate @data_keagamaan_katolik, :param_name => "daftar_data_keagamaan_katolik_page", :class => "pagination-sm" %>
+</div>
+<p style="text-align: center;"><%= page_entries_info @data_keagamaan_katolik, entry_name: 'data keagamaan katolik' %></p>
+</div>
