@@ -11,7 +11,7 @@ class LaporanPenyuluhAgamaKatolikController < ApplicationController
     unless helpers.pengguna_aktif?(@laporan_penyuluh_agama_katolik.pengguna)
       flash[:notice] = 'Maaf, Anda bukan pengguna yang berhak melakukannya'
       # Redirect to page referrer
-      redirect_to request.referrer
+      redirect_to root_path
     end
   end
 

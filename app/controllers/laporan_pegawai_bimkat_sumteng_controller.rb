@@ -11,7 +11,7 @@ class LaporanPegawaiBimkatSumtengController < ApplicationController
     unless helpers.pengguna_aktif?(@laporan_pegawai_bimkat_sumteng.pengguna)
       flash[:notice] = 'Maaf, Anda bukan pengguna yang berhak melakukannya'
       # Redirect to page referrer
-      redirect_to request.referrer
+      redirect_to root_path
     end
   end
 
