@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_134751) do
+ActiveRecord::Schema.define(version: 2019_05_01_144242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,24 @@ ActiveRecord::Schema.define(version: 2019_05_01_134751) do
     t.datetime "updated_at", null: false
     t.string "tautan"
     t.index ["pengguna_id"], name: "index_data_pendidikan_agama_katolik_on_pengguna_id"
+  end
+
+  create_table "galeri_foto", force: :cascade do |t|
+    t.string "judul"
+    t.string "keterangan"
+    t.bigint "pengguna_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pengguna_id"], name: "index_galeri_foto_on_pengguna_id"
+  end
+
+  create_table "galeri_video", force: :cascade do |t|
+    t.string "judul"
+    t.string "keterangan"
+    t.bigint "pengguna_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pengguna_id"], name: "index_galeri_video_on_pengguna_id"
   end
 
   create_table "informasi_berita_terkini", force: :cascade do |t|
@@ -105,6 +123,8 @@ ActiveRecord::Schema.define(version: 2019_05_01_134751) do
 
   add_foreign_key "data_keagamaan_katolik", "pengguna"
   add_foreign_key "data_pendidikan_agama_katolik", "pengguna"
+  add_foreign_key "galeri_foto", "pengguna"
+  add_foreign_key "galeri_video", "pengguna"
   add_foreign_key "informasi_berita_terkini", "pengguna"
   add_foreign_key "informasi_pengumuman", "pengguna"
   add_foreign_key "laporan_guru_agama_katolik", "pengguna"
