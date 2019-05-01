@@ -109,7 +109,7 @@ id:
       updated: Akun anda telah berhasil diperbaharui.
       updated_but_not_signed_in: Akun telah berhasil diperbarui, namun karena password telah diubah maka Anda harus mengulang masuk.
     sessions:
-      already_signed_out: 
+      already_signed_out: Anda telah keluar
       new:
         sign_in: Masuk
       signed_in: Proses masuk berhasil.

@@ -7,11 +7,11 @@
       <div class="card-body">
       <p class="card-title"><strong><h2><%= t('.sign_up') %></h2></strong></p>
       <div class="card-subtitle">
-          <p>Halo, selamat datang di Website Bimas Katolik Kementerian Agama Kabupaten Sumba Tengan</p>
+          <p>Halo, selamat datang di Website Bimas Katolik Kementerian Agama Kabupaten Sumba Tengah</p>
         <p>Untuk mendaftar, mohon lengkapi data yang dibutuhkan di bawah ini:</p>
       </div>
       <div class="card-text">
-        <%= f.text_field :nama_lengkap %>
+        <%= f.text_field :nama_lengkap, autofocus: true, autocomplete: "name"  %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       <% if @minimum_password_length %>
         <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
