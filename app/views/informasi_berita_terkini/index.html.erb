@@ -21,7 +21,7 @@
         <div class="btn-group btn-group-lg float-right" role="group" aria-label="Basic example">
           <%= link_to fa_icon("eye"), informasi_berita_terkini, :class => "btn btn-success", :title => "Lihat #{informasi_berita_terkini.judul}" %>
         <% if pengguna_signed_in? %>
-          <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.administrator? %>
+          <% if current_pengguna.pegawai_pendakat? || current_pengguna.pegawai_urakat? || current_pengguna.administrator? %>
           <%= link_to fa_icon("pencil"), edit_informasi_berita_terkini_path(informasi_berita_terkini), :class => "btn btn-warning", :title => "Edit #{informasi_berita_terkini.judul}"  %>
           <%= link_to fa_icon("trash"), informasi_berita_terkini, method: :delete, data: { confirm: "Anda yakin akan menghapus #{informasi_berita_terkini.judul}?" }, :class => "btn btn-danger", :title => "Hapus #{informasi_berita_terkini.judul}"  %>
           <% end %>

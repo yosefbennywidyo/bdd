@@ -21,7 +21,7 @@
         <div class="btn-group btn-group-lg float-right" role="group" aria-label="Basic example">
           <%= link_to fa_icon("eye"), data_keagamaan_katolik, :class => "btn btn-success", :title => "Lihat #{data_keagamaan_katolik.judul}" %>
         <% if pengguna_signed_in? %>
-          <% if current_pengguna.pegawai_pendakat? || current_pengguna.penyelenggara_pendakat? || current_pengguna.administrator? %>
+          <% if current_pengguna.pegawai_urakat? || current_pengguna.kasie_urakat? || current_pengguna.administrator? %>
           <%= link_to fa_icon("pencil"), edit_data_keagamaan_katolik_path(data_keagamaan_katolik), :class => "btn btn-warning", :title => "Edit #{data_keagamaan_katolik.judul}"  %>
           <%= link_to fa_icon("trash"), data_keagamaan_katolik, method: :delete, data: { confirm: "Anda yakin akan menghapus #{data_keagamaan_katolik.judul}?" }, :class => "btn btn-danger", :title => "Hapus #{data_keagamaan_katolik.judul}"  %>
           <% end %>
