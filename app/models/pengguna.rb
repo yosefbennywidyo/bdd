@@ -5,7 +5,7 @@ class Pengguna < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :rememberable, :validatable, :trackable
 
   has_many :data_keagamaan_katolik, dependent: :destroy
   has_many :data_pendidikan_agama_katolik, dependent: :destroy
@@ -18,4 +18,21 @@ class Pengguna < ApplicationRecord
   def set_peran_default
     self.peran ||= :pemirsa
   end
+
+  def self.from_omniauth(access_token)
+    data = access_token.info
+    pengguna = Pengguna.where(email: data['email']).first
+
+    # Uncomment the section below if you want users to be created if they don't exist
+    unless pengguna
+      pengguna = Pengguna.create(
+        nama_lengkap: data['name'],
+        email: data['email'],
+        password: Devise.friendly_token[0,20]
+      )
+    end
+    pengguna
+  end
+
+  devise :omniauthable, omniauth_providers: [:google_oauth2]
 end

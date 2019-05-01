@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :data_keagamaan_katolik
 
   devise_for :pengguna, :path => '', :path_names => { :sign_in => "masuk", :sign_out => "keluar", :sign_up => "mendaftar" }
+  
+  # Routes for Google authentication
+  devise_for :pengguna, controllers: { omniauth_callbacks: 'pengguna/omniauth_callbacks' }
 
 
 	root to: "beranda#index"

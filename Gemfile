@@ -3,7 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
-# Pagy
+# Google OmniAuth
+gem 'omniauth-google-oauth2'
+# Kaminari
 gem 'kaminari'
 # Boostrap
 gem 'bootstrap', '~> 4.3.1'
