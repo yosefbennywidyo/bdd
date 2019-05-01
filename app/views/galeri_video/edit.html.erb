@@ -1,6 +1,8 @@
-<h1>Editing Galeri Video</h1>
+<h1>Mengedit Galeri Video</h1>
 
 <%= render 'form', galeri_video: @galeri_video %>
 
-<%= link_to 'Show', @galeri_video %> |
-<%= link_to 'Back', galeri_video_index_path %>
+<div class="btn-group btn-group-lg float-right" role="group" aria-label="Basic example">
+	<%= link_to 'Tampilkan', @galeri_video, :class => "btn btn-success" %>
+	<%= link_to 'Batal', galeri_video_index_path, :class => "btn btn-secondary" %>
+</div>

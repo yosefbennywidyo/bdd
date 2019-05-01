@@ -2,5 +2,7 @@
 
 <%= render 'form', laporan_guru_agama_katolik: @laporan_guru_agama_katolik %>
 
-<%= link_to 'Show', @laporan_guru_agama_katolik %> |
-<%= link_to 'Back', laporan_guru_agama_katolik_index_path %>
+<div class="btn-group btn-group-lg float-right" role="group" aria-label="Basic example">
+	<%= link_to 'Tampilkan', @laporan_guru_agama_katolik, :class => "btn btn-success" %>
+	<%= link_to 'Batal', laporan_guru_agama_katolik_index_path, :class => "btn btn-secondary" %>
+</div>

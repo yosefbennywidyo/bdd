@@ -2,5 +2,8 @@
 
 <%= render 'form', informasi_berita_terkini: @informasi_berita_terkini %>
 
-<%= link_to 'Tampilkan', @informasi_berita_terkini %> |
-<%= link_to 'Batal', informasi_berita_terkini_index_path %>
+
+<div class="btn-group btn-group-lg float-right" role="group" aria-label="Basic example">
+	<%= link_to 'Tampilkan', @informasi_berita_terkini, :class => "btn btn-success" %>
+	<%= link_to 'Batal', informasi_berita_terkini_index_path, :class => "btn btn-secondary" %>
+</div>

@@ -2,5 +2,7 @@
 
 <%= render 'form', informasi_pengumuman: @informasi_pengumuman %>
 
-<%= link_to 'Tampilkan', @informasi_pengumuman %> |
-<%= link_to 'Batal', informasi_pengumuman_index_path %>
+<div class="btn-group btn-group-lg float-right" role="group" aria-label="Basic example">
+	<%= link_to 'Tampilkan', @informasi_pengumuman, :class => "btn btn-success" %>
+	<%= link_to 'Batal', informasi_pengumuman_index_path, :class => "btn btn-secondary" %>
+</div>
