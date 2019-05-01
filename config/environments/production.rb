@@ -99,6 +99,17 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
 
+  # SendGrid Setup
+  ActionMailer::Base.smtp_settings = {
+    :user_name => 'app132188869@heroku.com',
+    :password => 'vxmq0ypq6939',
+    :domain => 'app132188869@heroku.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+
   # Rails internationalization
   config.i18n.default_locale = :id
 end
