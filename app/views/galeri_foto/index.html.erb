@@ -32,3 +32,8 @@
   </div>
 <% end %>
 </div>
+<div class="container pagination justify-content-center" >
+  <%= paginate @galeri_foto, :param_name => "daftar_galeri_foto_page", :class => "pagination-sm" %>
+</div>
+<p style="text-align: center;"><%= page_entries_info @galeri_foto, entry_name: 'galeri foto' %></p>
+</div>

@@ -1,10 +1,11 @@
 class GaleriFotoController < ApplicationController
+  before_action :authenticate_pengguna!, :except => [:index, :show]
   before_action :set_galeri_foto, only: [:show, :edit, :update, :destroy]
 
   # GET /galeri_foto
   # GET /galeri_foto.json
   def index
-    @galeri_foto = GaleriFoto.all
+    @galeri_foto = GaleriFoto.order("created_at DESC").page(params[:daftar_galeri_foto_page]).per(6)
   end
 
   # GET /galeri_foto/1
@@ -24,7 +25,7 @@ class GaleriFotoController < ApplicationController
   # POST /galeri_foto
   # POST /galeri_foto.json
   def create
-    @galeri_foto = GaleriFoto.new(galeri_foto_params)
+    @galeri_foto.pengguna_id = current_pengguna.id
 
     respond_to do |format|
       if @galeri_foto.save

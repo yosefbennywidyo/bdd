@@ -1,10 +1,11 @@
 class GaleriVideoController < ApplicationController
+  before_action :authenticate_pengguna!, :except => [:index, :show]
   before_action :set_galeri_video, only: [:show, :edit, :update, :destroy]
 
   # GET /galeri_video
   # GET /galeri_video.json
   def index
-    @galeri_video = GaleriVideo.all
+    @galeri_video = GaleriVideo.order("created_at DESC").page(params[:daftar_galeri_video_page]).per(6)
   end
 
   # GET /galeri_video/1
@@ -24,7 +25,7 @@ class GaleriVideoController < ApplicationController
   # POST /galeri_video
   # POST /galeri_video.json
   def create
-    @galeri_video = GaleriVideo.new(galeri_video_params)
+    @galeri_video.pengguna_id = current_pengguna.id
 
     respond_to do |format|
       if @galeri_video.save

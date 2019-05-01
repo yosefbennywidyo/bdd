@@ -183,4 +183,34 @@ puts ""
 puts ""
 puts ""
 puts ""
+puts "Membuat Galeri Foto"
+10.times do |i|
+  GaleriFoto.create(judul: "Judul galeri foto ke-#{i}", keterangan: "Keterangan galeri foto ke-#{i}", tautan: "148cjHGXBqqghbunQxGC2tDp8z1YeCnuN", pengguna_id: pengguna_2.id)
+end
+10.times do |i|
+  GaleriFoto.create(judul: "Judul galeri foto ke-#{i}", keterangan: "Keterangan galeri foto ke-#{i}", tautan: "148cjHGXBqqghbunQxGC2tDp8z1YeCnuN", pengguna_id: pengguna_5.id)
+end
+puts ""
+puts "Berhasil membuat #{GaleriFoto.count} Galeri Foto"
+puts ""
+puts ""
+puts ""
+puts ""
+puts ""
+puts ""
+puts "Membuat Galeri Video"
+10.times do |i|
+  GaleriVideo.create(judul: "Judul galeri video ke-#{i}", keterangan: "Keterangan galeri video ke-#{i}", tautan: "0L5ExVd7ar8", pengguna_id: pengguna_2.id)
+end
+10.times do |i|
+  GaleriVideo.create(judul: "Judul galeri video ke-#{i}", keterangan: "Keterangan galeri video ke-#{i}", tautan: "0L5ExVd7ar8", pengguna_id: pengguna_5.id)
+end
+puts ""
+puts "Berhasil membuat #{GaleriFoto.count} Galeri Video"
+puts ""
+puts ""
+puts ""
+puts ""
+puts ""
+puts ""
 puts "Proses seed database selesai"
