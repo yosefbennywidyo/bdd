@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :galeri_foto
+  resources :galeri_video
   resources :laporan_pegawai_bimkat_sumteng
   resources :laporan_penyuluh_agama_katolik
   resources :laporan_guru_agama_katolik

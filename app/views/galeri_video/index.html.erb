@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Galeri Video</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Judul</th>
+      <th>Keterangan</th>
+      <th>Pengguna</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @galeri_video.each do |galeri_video| %>
+      <tr>
+        <td><%= galeri_video.judul %></td>
+        <td><%= galeri_video.keterangan %></td>
+        <td><%= galeri_video.pengguna %></td>
+        <td><%= link_to 'Show', galeri_video %></td>
+        <td><%= link_to 'Edit', edit_galeri_video_path(galeri_video) %></td>
+        <td><%= link_to 'Destroy', galeri_video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Galeri Video', new_galeri_video_path %>

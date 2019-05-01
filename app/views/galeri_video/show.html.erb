@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Judul:</strong>
+  <%= @galeri_video.judul %>
+</p>
+
+<p>
+  <strong>Keterangan:</strong>
+  <%= @galeri_video.keterangan %>
+</p>
+
+<p>
+  <strong>Pengguna:</strong>
+  <%= @galeri_video.pengguna %>
+</p>
+
+<%= link_to 'Edit', edit_galeri_video_path(@galeri_video) %> |
+<%= link_to 'Back', galeri_video_index_path %>
