@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_144242) do
+ActiveRecord::Schema.define(version: 2019_05_01_145125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_144242) do
     t.bigint "pengguna_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tautan"
     t.index ["pengguna_id"], name: "index_galeri_foto_on_pengguna_id"
   end
 
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_144242) do
     t.bigint "pengguna_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tautan"
     t.index ["pengguna_id"], name: "index_galeri_video_on_pengguna_id"
   end
 
