@@ -5,15 +5,13 @@
   <div class="col">
     <div class="card border-primary">
       <div class="card-body">
-      <p class="card-title"><strong><h2><%= t('.resend_confirmation_instructions') %></h2></strong></p>
-      <div class="card-subtitle">
-          <p>Halo, selamat datang di Website Bimas Katolik Kementerian Agama Kabupaten Sumba Tengan</p>
-        <p>Untuk mendaftar, mohon lengkapi data yang dibutuhkan di bawah ini:</p>
-      </div>
+      <p class="card-title">
+      	<strong><h2><%= t('.resend_confirmation_instructions') %></h2>
+      	</strong>
+      </p>
       <div class="card-text">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %> %>
-      <% end %>
-      <%= f.submit t('.resend_confirmation_instructions'), :class => "btn btn-primary btn-lg btn-block" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+        <%= f.submit t('.resend_confirmation_instructions'), :class => "btn btn-primary btn-lg btn-block" %>
       <div class="btn-group btn-lg btn-block" role="group" aria-label="Basic example">
         <%= render "devise/shared/links" %>
       </div>
