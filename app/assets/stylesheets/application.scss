@@ -10,7 +10,7 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
 footer {
@@ -18,7 +18,8 @@ footer {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
+  height: 80px;
+  text-align: center;
 }
 
 .navbar {
@@ -28,10 +29,15 @@ footer {
 .card-header {
 	background-color: rgb(2, 89, 15);
 }
-.container-fluid {
-  margin-top: 30px;
+.container-fluid-custom {
+  margin-top: 56px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-
+.card-container-fluid-custom {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
 .fa-beat {
   animation:fa-beat 5s ease infinite;
