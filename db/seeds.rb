@@ -16,43 +16,36 @@ pengguna_1 = Pengguna.create!(
 	nama_lengkap: "Guru Pendakat",
 	password: "qwerty",
 	password_confirmation: "qwerty")
-pengguna_1.confirm
 pengguna_2 = Pengguna.create!(
 	email: "pegawai_pendakat@kemenagsumteng.go.id",
 	nama_lengkap: "Pegawai Pendakat",
 	password: "qwerty",
 	password_confirmation: "qwerty")
-pengguna_2.confirm
 pengguna_3 = Pengguna.create!(
 	email: "penyelenggara_pendakat@kemenagsumteng.go.id",
 	nama_lengkap: "Penyelenggara Pendakat",
 	password: "qwerty",
 	password_confirmation: "qwerty")
-pengguna_3.confirm
 pengguna_4 = Pengguna.create!(
 	email: "penyuluh_urakat@kemenagsumteng.go.id",
 	nama_lengkap: "Penyuluh Urakat",
 	password: "qwerty",
 	password_confirmation: "qwerty")
-pengguna_4.confirm
 pengguna_5 = Pengguna.create!(
 	email: "pegawai_urakat@kemenagsumteng.go.id",
 	nama_lengkap: "Pegawai Urakat",
 	password: "qwerty",
 	password_confirmation: "qwerty")
-pengguna_5.confirm
 pengguna_6 = Pengguna.create!(
 	email: "kasie_urakat@kemenagsumteng.go.id",
 	nama_lengkap: "Kasie Urakat",
 	password: "qwerty",
 	password_confirmation: "qwerty")
-pengguna_6.confirm
 pengguna_7 = Pengguna.create!(
 	email: "administrator@kemenagsumteng.go.id",
 	nama_lengkap: "Administrator",
 	password: "qwerty",
 	password_confirmation: "qwerty")
-pengguna_7.confirm
 puts ""
 puts "Berhasil membuat #{Pengguna.count} pengguna"
 puts ""
