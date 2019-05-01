@@ -101,7 +101,7 @@ id:
         we_need_your_current_password_to_confirm_your_changes: Mohon masukkan password Anda saat ini untuk menyimpan perubahan
       new:
         sign_up: Mendaftar
-      signed_up: Proses pendaftaran berhasil. Apabila diaktifkan, konfirmasi telah dikirimkan ke e-mail anda.
+      signed_up: Proses pendaftaran berhasil.
       signed_up_but_inactive: Pendaftaran berhasil. Akan tetapi, Anda belum dapat masuk karena akun belum diaktivasi.
       signed_up_but_locked: Pendaftaran berhasil. Akan tetapi, Anda belum dapat masuk karena akun terkunci.
       signed_up_but_unconfirmed: Pesan dengan tautan konfirmasi telah dikirim ke email Anda. Harap buka tautan untuk mengaktifkan akun Anda.
