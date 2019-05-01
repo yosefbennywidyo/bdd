@@ -1,7 +1,7 @@
-<%= form_with(model: galeri_foto, local: true) do |form| %>
+<%= bootstrap_form_for(@galeri_foto) do |f| %>
   <% if galeri_foto.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(galeri_foto.errors.count, "error") %> prohibited this galeri_foto from being saved:</h2>
+      <h2><%= pluralize(galeri_foto.errors.count, "error") %> mengakibatkan Galeri Foto tidak dapat disimpan:</h2>
 
       <ul>
       <% galeri_foto.errors.full_messages.each do |message| %>
@@ -11,22 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :judul %>
-    <%= form.text_field :judul %>
-  </div>
-
-  <div class="field">
-    <%= form.label :keterangan %>
-    <%= form.text_field :keterangan %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pengguna_id %>
-    <%= form.text_field :pengguna_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= f.text_field :judul %>
+  <%= f.text_field :keterangan %>
+  <%= f.text_field :tautan %>
+  <%= f.submit "Membuat Galeri Foto" %>
+<% end %>
 <% end %>
