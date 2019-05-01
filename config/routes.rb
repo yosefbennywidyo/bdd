@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  # Routes for Google authentication
-  get 'auth/:provider/callback', to: 'sessions#googleAuth’'
-  get 'auth/failure', to: redirect('/')
-
   resources :laporan_pegawai_bimkat_sumteng
   resources :laporan_penyuluh_agama_katolik
   resources :laporan_guru_agama_katolik
@@ -12,6 +8,9 @@ Rails.application.routes.draw do
   resources :data_keagamaan_katolik
 
   devise_for :pengguna, :path => '', :path_names => { :sign_in => "masuk", :sign_out => "keluar", :sign_up => "mendaftar" }
+  
+  # Routes for Google authentication
+  devise_for :pengguna, controllers: { omniauth_callbacks: 'pengguna/omniauth_callbacks' }
 
 
 	root to: "beranda#index"
