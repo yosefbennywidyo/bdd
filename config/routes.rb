@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # Routes for Google authentication
+  get 'auth/:provider/callback', to: 'sessions#googleAuth’'
+  get 'auth/failure', to: redirect('/')
+
   resources :laporan_pegawai_bimkat_sumteng
   resources :laporan_penyuluh_agama_katolik
   resources :laporan_guru_agama_katolik
