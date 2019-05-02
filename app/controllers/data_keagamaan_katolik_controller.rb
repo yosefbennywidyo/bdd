@@ -26,6 +26,7 @@ class DataKeagamaanKatolikController < ApplicationController
   # POST /data_keagamaan_katolik
   # POST /data_keagamaan_katolik.json
   def create
+    @laporan_pegawai_bimkat_sumteng = LaporanPegawaiBimkatSumteng.new(laporan_pegawai_bimkat_sumteng_params)
     @data_keagamaan_katolik.pengguna_id = current_pengguna.id
 
     respond_to do |format|

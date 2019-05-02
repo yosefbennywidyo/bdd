@@ -25,6 +25,7 @@ class GaleriVideoController < ApplicationController
   # POST /galeri_video
   # POST /galeri_video.json
   def create
+    @galeri_video = GaleriVideo.new(galeri_video_params)
     @galeri_video.pengguna_id = current_pengguna.id
 
     respond_to do |format|
@@ -70,6 +71,6 @@ class GaleriVideoController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def galeri_video_params
-      params.require(:galeri_video).permit(:judul, :keterangan, :pengguna_id)
+      params.require(:galeri_video).permit(:judul, :keterangan, :tautan, :pengguna_id)
     end
 end

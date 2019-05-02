@@ -40,6 +40,7 @@ class LaporanPenyuluhAgamaKatolikController < ApplicationController
   # POST /laporan_penyuluh_agama_katolik.json
   def create
     @laporan_penyuluh_agama_katolik = LaporanPenyuluhAgamaKatolik.new(laporan_penyuluh_agama_katolik_params)
+    @laporan_penyuluh_agama_katolik.pengguna_id = current_pengguna.id
 
     respond_to do |format|
       if @laporan_penyuluh_agama_katolik.save
