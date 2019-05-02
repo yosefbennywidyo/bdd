@@ -39,7 +39,7 @@ class LaporanPenyuluhAgamaKatolikController < ApplicationController
   # POST /laporan_penyuluh_agama_katolik
   # POST /laporan_penyuluh_agama_katolik.json
   def create
-    @laporan_pegawai_bimkat_sumteng.pengguna_id = current_pengguna.id
+    @laporan_penyuluh_agama_katolik.pengguna_id = current_pengguna.id
     
     respond_to do |format|
       if @laporan_penyuluh_agama_katolik.save
