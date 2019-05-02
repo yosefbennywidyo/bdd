@@ -39,7 +39,7 @@ class LaporanPegawaiBimkatSumtengController < ApplicationController
   # POST /laporan_pegawai_bimkat_sumteng
   # POST /laporan_pegawai_bimkat_sumteng.json
   def create
-    @laporan_pegawai_bimkat_sumteng = LaporanPegawaiBimkatSumteng.new(laporan_pegawai_bimkat_sumteng_params)
+    @laporan_pegawai_bimkat_sumteng.pengguna_id = current_pengguna.id
 
     respond_to do |format|
       if @laporan_pegawai_bimkat_sumteng.save
